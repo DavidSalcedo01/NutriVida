@@ -29,6 +29,7 @@ class Login : AppCompatActivity() {
         password = findViewById(R.id.txt_password)
         login = findViewById(R.id.btn_login)
 
+        //Cambia el texto del boton en funcion si el usuario se va a registrar o loguear
         val bundle = intent.extras
         val type: String = bundle?.getString("flag").toString()
         if(type == "SingIn"){
@@ -38,10 +39,12 @@ class Login : AppCompatActivity() {
 
     }
 
+    //Metodo de busqueda de usuarios ya registrados y su autenticacion
     fun login (view: View?){
         if(flg){
             try {
                 var flag: Boolean = false
+                //Bucle de busqueda en el arrglos de usuarios
                 for (item in Users.user){
                     if(item.email == email.text.toString() && item.password == password.text.toString()){
                         Toast.makeText(this,"Datos correctos", Toast.LENGTH_SHORT).show();
@@ -63,10 +66,12 @@ class Login : AppCompatActivity() {
         }
     }
 
+    //Metodo de creacion de usuarios con los parametros ya obtenidos
     private fun createUser(){
         try{
             if(!email.text.isEmpty() || !password.text.isEmpty()){
                 val bundle = intent.extras
+                //Ingreso de datos del nuevo usuario al arreglo de usuarios
                 val newUser = Users(
                     email.text.toString(),
                     password.text.toString(),
@@ -78,8 +83,11 @@ class Login : AppCompatActivity() {
                     bundle?.getString("weigth")?.toFloatOrNull() ?: 20.0f,
                     bundle?.getString("goal").toString()
                 )
-                Users.user.add(newUser)
+                Users.user.add(newUser) //Adicion al arreglo "Users"
                 Toast.makeText(this,"Usuario registrado", Toast.LENGTH_SHORT).show();
+
+                TODO("Una ves que el usaurio sea registrado llevarlo al menu principal con sus datos cargados")
+                TODO("En la medida de los posible guardar el usuario logeado y no mosrar el banner del inicio")
             }
             else{
                 shoWarning("Rellene todos los campos")
@@ -90,6 +98,7 @@ class Login : AppCompatActivity() {
         }
     }
 
+    //Metodo de señalizacion de error al ingresar
     private fun shoWarning(text: String){
         email.setHintTextColor(Color.RED)
         password.setHintTextColor(Color.RED)

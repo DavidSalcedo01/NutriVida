@@ -42,7 +42,7 @@ class SingIn : AppCompatActivity() {
         frequency = findViewById(R.id.lb_trainingf)
         btnnext = findViewById(R.id.btn_next)
 
-
+        //Evento cuando el elemento "chip - Masculino" es precionado
         maleGender.setOnClickListener {
             resetInputs()
             femaleGender.chipBackgroundColor = getColorStateList(R.color.white)
@@ -60,6 +60,7 @@ class SingIn : AppCompatActivity() {
             }
         }
 
+        //Evento cuando el elemento "chip - Femenino" es precionado
         femaleGender.setOnClickListener {
             resetInputs()
             maleGender.chipBackgroundColor = getColorStateList(R.color.white)
@@ -77,6 +78,7 @@ class SingIn : AppCompatActivity() {
             }
         }
 
+        //Evento cuando el elemento "chip - Ninguno" es precionado
         noneGender.setOnClickListener {
             resetInputs()
             maleGender.chipBackgroundColor = getColorStateList(R.color.white)
@@ -93,6 +95,7 @@ class SingIn : AppCompatActivity() {
             }
         }
 
+        //Evento del SeekBar "Actividad fisica" recupera el valor seleccionado
         traning.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if(progress == 6){
@@ -109,10 +112,12 @@ class SingIn : AppCompatActivity() {
         })
     }
 
+    //Metodo del boton regresar
     fun back(view: View?){
         finish()
     }
 
+    //Metodo de validacion de datos ingresados y inicio del "SecondForm"
      fun nextForm(view: View?){
         if(!gender.isEmpty()){
             if (name.getText().toString().isEmpty() || age.getText().toString().isEmpty()){
@@ -127,6 +132,7 @@ class SingIn : AppCompatActivity() {
                     val Age = age.text.toString()
 
                     if (Age.toInt() in 11..79){
+                        //Envio de datos recuperados al siguiente formulario
                         val intent = Intent(this, SecondForm::class.java)
                         intent.putExtra("name", name.text.toString())
                         intent.putExtra("age", Age)
@@ -155,6 +161,7 @@ class SingIn : AppCompatActivity() {
         }
     }
 
+    //Metodo de reseteo de colores de los "chip" en caso de error
     private fun resetInputs(){
         femaleGender.setChipStrokeColorResource(R.color.text_gray)
         maleGender.setChipStrokeColorResource(R.color.text_gray)

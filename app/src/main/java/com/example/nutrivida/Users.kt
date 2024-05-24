@@ -1,5 +1,6 @@
 package com.example.nutrivida
 
+//Clase Usuario donde se almacenan toda la informacion de los usuarios
 class Users (
     var email:String,
     var password:String,
