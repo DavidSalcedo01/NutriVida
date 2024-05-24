@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SingIn">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="10dp"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/arrow_back"
+            android:onClick="back"
+            android:contentDescription="back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_createAccount"
+            android:layout_marginStart="70dp"
+            android:textStyle="bold"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="35dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/user_image"
+        android:contentDescription="user"/>
+
+    <TextView
+        android:id="@+id/lb_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:textStyle="bold"
+        android:text="Genero"/>
+
+    <LinearLayout
+        android:id="@+id/lyt_gender"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/grp_genderGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chp_maleGender"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                app:chipStrokeColor="@color/text_gray"
+                app:chipStrokeWidth="1dp"
+                android:layout_marginEnd="10dp"
+                app:chipMinTouchTargetSize="0dp"
+                android:text="Masculino"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chp_femaleGender"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                app:chipStrokeColor="@color/text_gray"
+                app:chipStrokeWidth="1dp"
+                android:textSize="18sp"
+                app:chipMinTouchTargetSize="0dp"
+                android:text="Femenino"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chp_noneGender"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                app:chipStrokeColor="@color/text_gray"
+                app:chipStrokeWidth="1dp"
+                android:textSize="18sp"
+                app:chipMinTouchTargetSize="0dp"
+                android:text="Ninguno"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lb_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="Tu Nombre"/>
+
+        <EditText
+            android:id="@+id/txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:background="@drawable/edittext_background"
+            android:textColorHint="#808080"
+            android:padding="12dp"
+            android:hint="Introduce tu nombre" />
+
+        <TextView
+            android:id="@+id/lb_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:text="Tu Edad"/>
+
+        <EditText
+            android:id="@+id/txt_age"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:background="@drawable/edittext_background"
+            android:textColorHint="#808080"
+            android:padding="12dp"
+            android:hint="Introduce tu edad"/>
+
+        <TextView
+            android:id="@+id/lb_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"
+            android:text="Tu Actividad Fisica"/>
+
+
+        <SeekBar
+            android:id="@+id/sbr_trainingf"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:splitTrack="false"
+            android:thumb="@drawable/seekbar_thumb"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:max="6" />
+
+        <TextView
+            android:id="@+id/lb_trainingf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Entrena de 0-2 veces por semana"/>
+
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="15sp"
+            android:layout_marginTop="25dp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/primary"
+            android:text="Siguiente"
+            android:onClick="nextForm"/>
+    </LinearLayout>
+
+
+</LinearLayout>
