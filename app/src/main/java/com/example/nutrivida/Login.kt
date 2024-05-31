@@ -17,6 +17,7 @@ class Login : AppCompatActivity() {
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var login: Button
+    private lateinit var banner:TextView
 
     private var flg: Boolean = true
 
@@ -28,12 +29,14 @@ class Login : AppCompatActivity() {
         email = findViewById(R.id.txt_email)
         password = findViewById(R.id.txt_password)
         login = findViewById(R.id.btn_login)
+        banner = findViewById(R.id.lb_banner)
 
         //Cambia el texto del boton en funcion si el usuario se va a registrar o loguear
         val bundle = intent.extras
         val type: String = bundle?.getString("flag").toString()
         if(type == "SingIn"){
             login.text = "Registrarse"
+            banner.text = "Inicia una vida \nnueva!"
             flg = false
         }
 
@@ -86,8 +89,7 @@ class Login : AppCompatActivity() {
                 Users.user.add(newUser) //Adicion al arreglo "Users"
                 Toast.makeText(this,"Usuario registrado", Toast.LENGTH_SHORT).show();
 
-                TODO("Una ves que el usaurio sea registrado llevarlo al menu principal con sus datos cargados")
-                TODO("En la medida de los posible guardar el usuario logeado y no mosrar el banner del inicio")
+                //INICIO DEL BUTTON NAVIGATION
             }
             else{
                 shoWarning("Rellene todos los campos")

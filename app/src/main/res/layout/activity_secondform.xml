@@ -5,13 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
+    android:layout_gravity="center"
     tools:context=".SecondForm">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -19,19 +21,20 @@
             android:id="@+id/imageView"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:padding="10dp"
             android:layout_marginStart="5dp"
-            app:srcCompat="@drawable/arrow_back"
+            android:contentDescription="back"
             android:onClick="back"
-            android:contentDescription="back"/>
+            android:padding="10dp"
+            app:srcCompat="@drawable/arrow_back" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_createAccount"
             android:layout_marginStart="70dp"
-            android:textStyle="bold"
-            android:textSize="30sp"/>
+            android:text="@string/text_createAccount"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -39,14 +42,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginStart="23dp"
+            android:layout_marginTop="15dp"
             android:text="Tu Estatura"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -54,10 +59,11 @@
             android:id="@+id/lb_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_marginStart="190dp"
-            android:textSize="18sp"
-            android:text="170 cm"/>
+            android:layout_marginTop="15dp"
+            android:text="170 cm"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <FrameLayout
@@ -68,8 +74,8 @@
             android:id="@+id/img_dimensions"
             android:layout_width="200dp"
             android:layout_height="350dp"
-            android:layout_marginTop="12dp"
             android:layout_marginStart="90dp"
+            android:layout_marginTop="12dp"
             app:srcCompat="@drawable/dimension_user" />
 
         <ImageView
@@ -103,12 +109,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="18sp"
-            android:text="60 kg"/>
+            android:text="60 kg"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <SeekBar
             android:id="@+id/sbr_weight"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
@@ -122,18 +129,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="18dp"
         android:layout_marginLeft="23dp"
-        android:layout_marginRight="23dp">
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="23dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/lb_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:text="Cual es tu meta"
+            android:textColor="@color/black"
             android:textSize="18sp"
-            android:text="Cual es tu meta"/>
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spn_goal"
@@ -141,18 +149,20 @@
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/edittext_background"
+            android:entries="@array/goals"
             android:padding="12dp"
-            android:entries="@array/goals"/>
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/btn_finish"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:textSize="15sp"
             android:layout_marginTop="18dp"
-            android:textStyle="bold"
             android:backgroundTint="@color/primary"
+            android:onClick="finish"
             android:text="Terminar"
-            android:onClick="finish"/>
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>
