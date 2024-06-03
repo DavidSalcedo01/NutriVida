@@ -1,0 +1,87 @@
+package com.example.nutrivida
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.SeekBar
+import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
+
+class SecondForm : AppCompatActivity() {
+    private lateinit var heightamount: TextView
+    private lateinit var height: SeekBar
+    private lateinit var weightamount: TextView
+    private lateinit var weight: SeekBar
+    private lateinit var imgdim:ImageView
+    private lateinit var goal: Spinner
+
+    private var amountH: Float = 170f
+    private var amountW: Float = 60f
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_secondform)
+        heightamount = findViewById(R.id.lb_height)
+        height = findViewById(R.id.sbr_height)
+        weightamount = findViewById(R.id.lb_weight)
+        weight = findViewById(R.id.sbr_weight)
+        imgdim = findViewById(R.id.img_dimensions)
+        goal = findViewById(R.id.spn_goal)
+
+
+        //Evento donde se recupera la informacion del SeekBar "heigth"
+        height.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                if(progress > 10){
+                    //Se multiplica el valor por 2.5 para llevar una proporcion coerente
+                    amountH = (progress * 2.5).toFloat()
+                    heightamount.text = "$amountH cm"
+                }
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
+        //Evento donde se recupera la informacion del SeekBar "weigth"
+        weight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                if(progress > 5){
+                    //Se multiplica el valor por 4 para llevar una proporcion coerente
+                    amountW = (progress * 4).toFloat()
+                    weightamount.text = "$amountW kg"
+                }
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
+    }
+
+    //Metodo del boton regresar
+    fun back(view: View?){
+        finish()
+    }
+
+    //Metodo de inicio del "Login" en modo de Registrar nuevo usuario
+    fun finish(view: View?){
+        val bundle = intent.extras
+        val intent = Intent(this, Login::class.java)
+        //Envio de todos los datos recuperados para ser almacenados
+        intent.putExtra("flag", "SingIn") //Flag que nos ayuda a determinar si el usuario es nuevo
+        intent.putExtra("heigth",amountH.toString())
+        intent.putExtra("weigth",amountW.toString())
+        intent.putExtra("goal",goal.selectedItem.toString())
+        intent.putExtra("name", bundle?.getString("name"))
+        intent.putExtra("age", bundle?.getString("age"))
+        intent.putExtra("training", bundle?.getString("training"))
+        intent.putExtra("gender", bundle?.getString("gender"))
+        startActivity(intent)
+    }
+}

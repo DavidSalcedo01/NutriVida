@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">NutriVida</string>
+    <string name="title_aplication">Descubre tu nuevo tu</string>
+    <string name="text_singIn">Empezar ahora</string>
+    <string name="text_logIn">Ya tengo una cuenta? LogIn</string>
+    <string name="text_createAccount">Crear cuenta</string>
+
+    <string-array name="goals">
+        <item>Pérdida de peso</item>
+        <item>Aumento de masa muscular</item>
+        <item>Mejorar la salud cardiovascular</item>
+        <item>Control de niveles de azúcar en la sangre</item>
+        <item>Reducción del colesterol</item>
+        <item>Mejorar la digestión</item>
+        <item>Aumentar la energía</item>
+        <item>Mejorar la piel</item>
+        <item>Controlar la presión arterial</item>
+        <item>Mejorar el bienestar mental</item>
+    </string-array>
+</resources>
