@@ -17,4 +17,14 @@
         <item>Controlar la presión arterial</item>
         <item>Mejorar el bienestar mental</item>
     </string-array>
+
+    <!-- MENU -->
+
+    <string name="home">HOME</string>
+    <string name="calorias">CALORIAS</string>
+    <string name="actividad">ACTIVIDAD</string>
+    <string name="perfil">PERFIL</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
