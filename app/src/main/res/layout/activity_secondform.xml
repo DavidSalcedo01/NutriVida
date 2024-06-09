@@ -149,9 +149,8 @@
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/edittext_background"
-            android:entries="@array/goals"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+            android:spinnerMode="dropdown"
+            android:padding="12dp" />
 
         <Button
             android:id="@+id/btn_finish"

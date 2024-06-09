@@ -1,5 +1,7 @@
 package com.example.nutrivida
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -42,26 +44,24 @@ class Login : AppCompatActivity() {
 
     }
 
-    //Metodo de busqueda de usuarios ya registrados y su autenticacion
+    //Metodo de Validacion de usuario al logear
     fun login (view: View?){
         if(flg){
             try {
                 var flag: Boolean = false
-                //Bucle de busqueda en el arrglos de usuarios
-                for (item in Users.user){
-                    if(item.email == email.text.toString() && item.password == password.text.toString()){
-                        Toast.makeText(this,"Datos correctos", Toast.LENGTH_SHORT).show();
-                        flag = true
-                    }
+                val pref = getSharedPreferences("user_data", Context.MODE_PRIVATE)
+                val dataEmail = pref.getString("email", "")
+                val dataPassword = pref.getString("password", "")
+                if(dataEmail == email.text.toString() && dataPassword == password.text.toString()){
+                    val intent = Intent(this, Menu::class.java)
+                    startActivity(intent)
                 }
-                if (!flag){
-                    email.setText("")
-                    password.setText("")
+                else{
                     shoWarning("Datos incorrectos")
                 }
             }
             catch (ex: Exception){
-                Toast.makeText(this,"Datos incorrectos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Error", Toast.LENGTH_SHORT).show();
             }
         }
         else{
@@ -72,24 +72,26 @@ class Login : AppCompatActivity() {
     //Metodo de creacion de usuarios con los parametros ya obtenidos
     private fun createUser(){
         try{
-            if(!email.text.isEmpty() || !password.text.isEmpty()){
+            if(email.text.isNotEmpty() || password.text.isNotEmpty()){
                 val bundle = intent.extras
-                //Ingreso de datos del nuevo usuario al arreglo de usuarios
-                val newUser = Users(
-                    email.text.toString(),
-                    password.text.toString(),
-                    bundle?.getString("name").toString(),
-                    bundle?.getString("gender").toString(),
-                    bundle?.getString("age")?.toIntOrNull() ?: 0,
-                    bundle?.getString("training")?.toIntOrNull() ?: 11,
-                    bundle?.getString("heigth")?.toFloatOrNull() ?: 40.0f,
-                    bundle?.getString("weigth")?.toFloatOrNull() ?: 20.0f,
-                    bundle?.getString("goal").toString()
-                )
-                Users.user.add(newUser) //Adicion al arreglo "Users"
-                Toast.makeText(this,"Usuario registrado", Toast.LENGTH_SHORT).show();
+                //Insercion de los datos del usuario al SheredPreferences
+                var pref = getSharedPreferences("user_data", Context.MODE_PRIVATE)
+                var editor = pref.edit()
+                editor.putString("email", email.text.toString())
+                editor.putString("password", password.text.toString())
+                editor.putString("name", bundle?.getString("name").toString())
+                editor.putString("gender", bundle?.getString("gender").toString())
+                editor.putInt("age", bundle?.getString("age")?.toIntOrNull() ?: 0)
+                editor.putInt("training", bundle?.getString("training")?.toIntOrNull() ?: 11)
+                editor.putFloat("height", bundle?.getString("height")?.toFloatOrNull() ?: 40.0f)
+                editor.putFloat("weight", bundle?.getString("weight")?.toFloatOrNull() ?: 20.0f)
+                editor.putString("goal", bundle?.getString("goal").toString())
+                editor.commit() //Guardado de los datos
 
-                //INICIO DEL BUTTON NAVIGATION
+
+                //INICIO DEL TAB NAVIGATION
+                val intent = Intent(this, Menu::class.java)
+                startActivity(intent)
             }
             else{
                 shoWarning("Rellene todos los campos")

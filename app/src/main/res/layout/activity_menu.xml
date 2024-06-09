@@ -5,14 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    android:background="@color/white"
     tools:context=".Menu">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpVisor"
-        android:layout_width="391dp"
-        android:layout_height="713dp"
+        android:layout_width="match_parent"
+        android:layout_height="818dp"
         app:layout_constraintBottom_toTopOf="@+id/tabLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/white"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -25,6 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:tabIconTint="@color/primary"
         app:tabIndicatorColor="@color/primary"
+        android:backgroundTint="@color/white"
         app:tabRippleColor="@android:color/holo_green_light"
         app:tabSelectedTextColor="@color/primary">
 
