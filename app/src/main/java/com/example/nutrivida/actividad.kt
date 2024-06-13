@@ -1,59 +1,105 @@
 package com.example.nutrivida
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [actividad.newInstance] factory method to
- * create an instance of this fragment.
- */
 class actividad : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var isTimerRunning = false
+    private lateinit var countDownTimer: CountDownTimer
+    private val totalTime = 1 * 60 * 1000L
+    private var timeLeft = totalTime
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_actividad, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_actividad, container, false)
+
+        val imbVideo1: ImageButton = view.findViewById(R.id.imb_video1)
+        val imbVideo2: ImageButton = view.findViewById(R.id.imb_video2)
+        val imbVideo3: ImageButton = view.findViewById(R.id.imb_video3)
+        val imbVideo4: ImageButton = view.findViewById(R.id.imb_video4)
+        val imbVideo5: ImageButton = view.findViewById(R.id.imb_video5)
+        val imbVideo6: ImageButton = view.findViewById(R.id.imb_video6)
+
+        imbVideo1.setOnClickListener { launchVideoActivity("android.resource://${requireContext().packageName}/${R.raw.video1}") }
+        imbVideo2.setOnClickListener { launchVideoActivity("android.resource://${requireContext().packageName}/${R.raw.video2}") }
+        imbVideo3.setOnClickListener { launchVideoActivity("android.resource://${requireContext().packageName}/${R.raw.video3}") }
+        imbVideo4.setOnClickListener { launchVideoActivity("android.resource://${requireContext().packageName}/${R.raw.video4}") }
+        imbVideo5.setOnClickListener { launchVideoActivity("android.resource://${requireContext().packageName}/${R.raw.video5}") }
+        imbVideo6.setOnClickListener { launchVideoActivity("android.resource://${requireContext().packageName}/${R.raw.video6}") }
+
+        val buttonEjercicio: Button = view.findViewById(R.id.button_ejercicio)
+        val progressBar: ProgressBar = view.findViewById(R.id.progressBar2)
+        val textEjercicioP: TextView = view.findViewById(R.id.text_EjercicioP)
+        val ejercicio: TextView = view.findViewById(R.id.text_actividad)
+
+        buttonEjercicio.setOnClickListener {
+            if (isTimerRunning) {
+                pauseTimer()
+                buttonEjercicio.text = "Continuar"
+            } else {
+                startTimer(progressBar, textEjercicioP)
+                buttonEjercicio.text = "Pausar"
+                ejercicio.text = "Hacer ejercicio!"
+            }
+        }
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment actividad.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            actividad().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun startTimer(progressBar: ProgressBar, textEjercicioP: TextView) {
+        countDownTimer = object : CountDownTimer(timeLeft, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                timeLeft = millisUntilFinished
+                updateProgressBar(progressBar, textEjercicioP)
             }
+
+            override fun onFinish() {
+                showToast()
+                resetTimer(progressBar, textEjercicioP)
+            }
+        }.start()
+        isTimerRunning = true
+    }
+
+    private fun pauseTimer() {
+        countDownTimer.cancel()
+        isTimerRunning = false
+    }
+
+    private fun resetTimer(progressBar: ProgressBar, textEjercicioP: TextView) {
+        timeLeft = totalTime
+        updateProgressBar(progressBar, textEjercicioP)
+        isTimerRunning = false
+    }
+
+    private fun updateProgressBar(progressBar: ProgressBar, textEjercicioP: TextView) {
+        val progress = ((totalTime - timeLeft).toFloat() / totalTime * 100).toInt()
+        progressBar.progress = progress
+        textEjercicioP.text = "Progreso: $progress%"
+    }
+
+    private fun showToast() {
+        Toast.makeText(requireContext(), "¡Has completado tu ejercicio de 25 minutos!", Toast.LENGTH_LONG).show()
+    }
+
+    private fun launchVideoActivity(videoUri: String) {
+        val intent = Intent(context, Video::class.java).apply {
+            putExtra("videoUri", videoUri)
+        }
+        startActivity(intent)
     }
 }
