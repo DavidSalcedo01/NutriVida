@@ -1,10 +1,42 @@
 <resources>
+    <!-- Strings activity_main -->
     <string name="app_name">NutriVida</string>
     <string name="title_aplication">Descubre tu nuevo tu</string>
-    <string name="text_singIn">Empezar ahora</string>
-    <string name="text_logIn">Ya tengo una cuenta? LogIn</string>
+    <string name="btn_singIn">Empezar ahora</string>
+    <string name="btn_logIn">Ya tengo una cuenta? LogIn</string>
     <string name="text_createAccount">Crear cuenta</string>
 
+
+    <!-- Strings activity_login -->
+    <string name="banner">Regreso a la vida</string>
+    <string name="custom_banner">Que gusto \n verte de nuevo!</string>
+    <string name="lb_email">E-mail</string>
+    <string name="lb_password">Password</string>
+    <string name="btn_submit">Ingresar</string>
+    <string name="btn_facebook">Facebook</string>
+    <string name="btn_google">Google</string>
+    <string name="btn_apple">Apple</string>
+
+
+    <!-- Strings activity_singin -->
+    <string name="btn_goBack">back</string>
+    <string name="user_image">user</string>
+    <string name="lb_gender">Genero</string>
+    <string name="chp_male">Masculino</string>
+    <string name="chp_female">Femenino</string>
+    <string name="chp_none">Ninguno</string>
+    <string name="lb_name">Tu Nombre</string>
+    <string name="txt_name">Introduce tu nombre</string>
+    <string name="lb_age">Tu Edad</string>
+    <string name="txt_age">Introduce tu edad</string>
+    <string name="lb_weight">Tu Actividad Fisica</string>
+    <string name="lb_trainingf">Entrena de 0-2 veces por semana</string>
+    <string name="btn_next">Siguiente</string>
+
+    <!-- Strings activity_secondform -->
+
+
+    <!-- OPCIONES SPINNER -->
     <string-array name="goals">
         <item>Pérdida de peso</item>
         <item>Aumento de masa muscular</item>
@@ -17,4 +49,13 @@
         <item>Controlar la presión arterial</item>
         <item>Mejorar el bienestar mental</item>
     </string-array>
+
+    <!-- MENU -->
+    <string name="home">HOME</string>
+    <string name="calorias">CALORIAS</string>
+    <string name="actividad">ACTIVIDAD</string>
+    <string name="perfil">PERFIL</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

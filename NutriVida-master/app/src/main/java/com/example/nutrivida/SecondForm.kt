@@ -3,6 +3,7 @@ package com.example.nutrivida
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.SeekBar
@@ -35,6 +36,12 @@ class SecondForm : AppCompatActivity() {
         imgdim = findViewById(R.id.img_dimensions)
         goal = findViewById(R.id.spn_goal)
 
+        val items =  resources.getStringArray(R.array.goals)
+
+        val adapter = ArrayAdapter(this, R.layout.spinner_item, items)
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
+        goal.adapter = adapter
+
 
         //Evento donde se recupera la informacion del SeekBar "heigth"
         height.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -49,7 +56,7 @@ class SecondForm : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        //Evento donde se recupera la informacion del SeekBar "weigth"
+        //Evento donde se recupera la informacion del SeekBar "weight"
         weight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if(progress > 5){
@@ -75,8 +82,8 @@ class SecondForm : AppCompatActivity() {
         val intent = Intent(this, Login::class.java)
         //Envio de todos los datos recuperados para ser almacenados
         intent.putExtra("flag", "SingIn") //Flag que nos ayuda a determinar si el usuario es nuevo
-        intent.putExtra("heigth",amountH.toString())
-        intent.putExtra("weigth",amountW.toString())
+        intent.putExtra("height",amountH.toString())
+        intent.putExtra("weight",amountW.toString())
         intent.putExtra("goal",goal.selectedItem.toString())
         intent.putExtra("name", bundle?.getString("name"))
         intent.putExtra("age", bundle?.getString("age"))

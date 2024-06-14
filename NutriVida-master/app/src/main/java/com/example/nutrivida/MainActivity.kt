@@ -1,5 +1,6 @@
 package com.example.nutrivida
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        val pref = getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        //Determinamos si el usuario ya esta logeado
+        if(pref.contains("email") && pref.contains("password")){
+            val intent = Intent(this, Menu::class.java)
+            startActivity(intent)
+        }
 
     }
 

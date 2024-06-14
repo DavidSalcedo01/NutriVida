@@ -25,7 +25,7 @@
             android:layout_marginStart="5dp"
             app:srcCompat="@drawable/arrow_back"
             android:onClick="back"
-            android:contentDescription="back"/>
+            android:contentDescription="@string/btn_goBack"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
         android:layout_marginTop="55dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/user_image"
-        android:contentDescription="user"/>
+        android:contentDescription="@string/user_image"/>
 
     <TextView
         android:id="@+id/lb_gender"
@@ -57,7 +57,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="5dp"
         android:textStyle="bold"
-        android:text="Genero"/>
+        android:text="@string/lb_gender"/>
 
     <LinearLayout
         android:id="@+id/lyt_gender"
@@ -82,7 +82,7 @@
                 app:chipBackgroundColor="@android:color/white"
                 android:layout_marginEnd="10dp"
                 app:chipMinTouchTargetSize="0dp"
-                android:text="Masculino"/>
+                android:text="@string/chp_male"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chp_femaleGender"
@@ -95,7 +95,7 @@
                 android:textColor="@color/black"
                 app:chipBackgroundColor="@android:color/white"
                 app:chipMinTouchTargetSize="0dp"
-                android:text="Femenino"/>
+                android:text="@string/chp_female"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chp_noneGender"
@@ -107,7 +107,7 @@
                 android:textColor="@color/black"
                 app:chipBackgroundColor="@android:color/white"
                 app:chipMinTouchTargetSize="0dp"
-                android:text="Ninguno"/>
+                android:text="@string/chp_none"/>
 
         </com.google.android.material.chip.ChipGroup>
 
@@ -128,7 +128,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:text="Tu Nombre"/>
+            android:text="@string/lb_name"/>
 
         <EditText
             android:id="@+id/txt_name"
@@ -139,7 +139,7 @@
             android:textColor="@color/black"
             android:textColorHint="#808080"
             android:padding="12dp"
-            android:hint="Introduce tu nombre" />
+            android:hint="@string/txt_name" />
 
         <TextView
             android:id="@+id/lb_age"
@@ -149,7 +149,7 @@
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
             android:textSize="18sp"
-            android:text="Tu Edad"/>
+            android:text="@string/lb_age"/>
 
         <EditText
             android:id="@+id/txt_age"
@@ -160,7 +160,7 @@
             android:textColor="@color/black"
             android:textColorHint="#808080"
             android:padding="12dp"
-            android:hint="Introduce tu edad"/>
+            android:hint="@string/txt_age"/>
 
         <TextView
             android:id="@+id/lb_weight"
@@ -170,7 +170,7 @@
             android:textSize="18sp"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
-            android:text="Tu Actividad Fisica"/>
+            android:text="@string/lb_weight"/>
 
 
         <SeekBar
@@ -187,7 +187,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="Entrena de 0-2 veces por semana"/>
+            android:text="@string/lb_trainingf"/>
 
 
         <Button
@@ -199,7 +199,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:backgroundTint="@color/primary"
-            android:text="Siguiente"
+            android:text="@string/btn_next"
             android:onClick="nextForm"/>
     </LinearLayout>
 

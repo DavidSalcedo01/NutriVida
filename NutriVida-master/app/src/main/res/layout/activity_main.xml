@@ -35,7 +35,7 @@
         android:backgroundTint="@color/primary"
         android:onClick="SingIn"
         android:textColor="@color/white"
-        android:text="@string/text_singIn"
+        android:text="@string/btn_singIn"
         android:textSize="15sp"
         android:textStyle="bold" />
 
@@ -49,6 +49,6 @@
         android:textColor="@color/white"
         android:foreground="?android:attr/selectableItemBackground"
         android:onClick="LogIn"
-        android:text="@string/text_logIn" />
+        android:text="@string/btn_logIn" />
 
 </LinearLayout>

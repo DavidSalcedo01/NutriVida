@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    android:background="@color/white"
+    tools:context=".Menu">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpVisor"
+        android:layout_width="match_parent"
+        android:layout_height="818dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/white"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabIconTint="@color/primary"
+        app:tabIndicatorColor="@color/primary"
+        android:backgroundTint="@color/white"
+        app:tabRippleColor="@android:color/holo_green_light"
+        app:tabSelectedTextColor="@color/primary">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/itmHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/home"
+            android:text="PRINCIPAL" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/itmCalorias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/calorias"
+            android:text="CALORIAS" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/itmActividad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/actividad"
+            android:text="ACTIVIDAD" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/itmPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/perfil"
+            android:text="PERFIL" />
+
+    </com.google.android.material.tabs.TabLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
