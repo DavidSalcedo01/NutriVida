@@ -12,6 +12,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 
 class actividad : Fragment() {
 
@@ -19,6 +20,8 @@ class actividad : Fragment() {
     private lateinit var countDownTimer: CountDownTimer
     private val totalTime = 1 * 60 * 1000L
     private var timeLeft = totalTime
+
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +67,8 @@ class actividad : Fragment() {
         countDownTimer = object : CountDownTimer(timeLeft, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeft = millisUntilFinished
-                updateProgressBar(progressBar, textEjercicioP)
+                val progress = updateProgressBar(progressBar, textEjercicioP)
+                sharedViewModel.setProgress(progress)
             }
 
             override fun onFinish() {
@@ -86,10 +90,11 @@ class actividad : Fragment() {
         isTimerRunning = false
     }
 
-    private fun updateProgressBar(progressBar: ProgressBar, textEjercicioP: TextView) {
+    private fun updateProgressBar(progressBar: ProgressBar, textEjercicioP: TextView): Int {
         val progress = ((totalTime - timeLeft).toFloat() / totalTime * 100).toInt()
         progressBar.progress = progress
         textEjercicioP.text = "Progreso: $progress%"
+        return progress
     }
 
     private fun showToast() {

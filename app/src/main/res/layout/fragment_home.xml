@@ -15,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary"
             android:orientation="vertical">
 
             <LinearLayout
@@ -44,6 +45,15 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btn_progreso"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/primary"
+                android:text="Registrar Progreso"
+                app:icon="@drawable/baseline_add_circle_outline_24" />
+
             <LinearLayout
                 android:layout_width="373dp"
                 android:layout_height="187dp"
@@ -64,14 +74,50 @@
                     android:textSize="24sp"
                     android:textStyle="normal" />
 
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:background="@drawable/goals"
-                    android:src="@drawable/goals" />
+                <FrameLayout
+                    android:id="@+id/flp"
+                    android:layout_width="182dp"
+                    android:layout_height="135dp"
+                    android:layout_gravity="center_vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar_principal"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/gray_progressbar_background"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/gold_progressbar_background"
+                        android:rotation="90" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_pro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="#FFC107"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="PROGRESO"
+                            android:textColor="#FFC107"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -93,7 +139,9 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal|top"
-                        android:layout_margin="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -111,21 +159,56 @@
                             android:layout_height="28dp"
                             android:layout_weight="1"
                             android:src="@drawable/agua" />
+
+
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/imageView13"
+                    <FrameLayout
+                        android:id="@+id/flpa"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/watercup" />
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical">
 
-                    <TextView
-                        android:id="@+id/text_numCup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="Vasos: 9"
-                        android:textStyle="bold" />
+                        <ProgressBar
+                            android:id="@+id/progressBar_v"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/gray_progressbar_background"
+                            android:max="18"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/blue_progressbar_background"
+                            android:rotation="90" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/text_numCup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textColor="#00BCD4"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="VASOS"
+                                android:textColor="#00BCD4"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -139,7 +222,9 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal|top"
-                        android:layout_margin="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -162,12 +247,51 @@
                             android:src="@drawable/aguacate" />
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/imageView11"
-                        android:layout_width="115dp"
-                        android:layout_height="103dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/caloriaspor" />
+                    <FrameLayout
+                        android:id="@+id/flpc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical">
+
+                        <ProgressBar
+                            android:id="@+id/progressBar_c"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/gray_progressbar_background"
+                            android:indeterminate="false"
+                            android:progressDrawable="@drawable/green_progressbar_background"
+                            android:rotation="90" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/text_c"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textColor="#8BC34A"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="%"
+                                android:textColor="#8BC34A"
+                                android:textSize="30sp" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
 
                 </LinearLayout>
 
@@ -182,12 +306,22 @@
 
                 <TextView
                     android:id="@+id/text_pasos"
-                    android:layout_width="80dp"
+                    android:layout_width="136dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:layout_margin="10dp"
-                    android:text="Mis Pasos"
+                    android:text="Actividad Fisica"
                     android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar_a"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="352dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:progressBackgroundTint="#E91E63"
+                    android:progressTint="#FF0000" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -196,7 +330,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="40dp"
-                android:background="@drawable/edittext_background"
+                android:background="@drawable/panel"
                 android:orientation="vertical">
 
                 <TextView
@@ -205,26 +339,31 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Ciclo de sueño"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/text_h"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Horas: 7" />
+                    android:text="Horas: 0"
+                    android:textColor="@color/white" />
 
                 <ProgressBar
-                    android:id="@+id/progressBar"
+                    android:id="@+id/progressBar_s"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="352dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:progressBackgroundTint="@color/primary" />
+                    android:max="8"
+                    android:progressBackgroundTint="#CDDC39"
+                    android:progressTint="#FFEB3B" />
 
             </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
 </FrameLayout>
