@@ -20,7 +20,7 @@ class Menu : AppCompatActivity() {
         val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
         val vpVisor = findViewById<ViewPager2>(R.id.vpVisor)
 
-        val viewPagerAdapter = ViewPagerAdapter(this) // Envio de parametros que se usuara en los fragments
+        val viewPagerAdapter = ViewPagerAdapter(this)
         vpVisor.adapter = viewPagerAdapter
 
         TabLayoutMediator(tabLayout, vpVisor) { tab, position ->

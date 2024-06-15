@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/home"
+            style="@style/PoppinsText"
             android:text="PRINCIPAL" />
 
         <com.google.android.material.tabs.TabItem
@@ -44,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/calorias"
+            style="@style/PoppinsText"
             android:text="CALORIAS" />
 
         <com.google.android.material.tabs.TabItem
@@ -51,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/actividad"
+            style="@style/PoppinsText"
             android:text="ACTIVIDAD" />
 
         <com.google.android.material.tabs.TabItem
@@ -58,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/perfil"
+            style="@style/PoppinsText"
             android:text="PERFIL" />
 
     </com.google.android.material.tabs.TabLayout>

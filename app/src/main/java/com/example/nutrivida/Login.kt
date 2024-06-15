@@ -57,7 +57,9 @@ class Login : AppCompatActivity() {
                     startActivity(intent)
                 }
                 else{
-                    shoWarning("Datos incorrectos")
+                    email.setText("")
+                    password.setText("")
+                    shoWarning("Datos incorrectos", "both")
                 }
             }
             catch (ex: Exception){
@@ -73,28 +75,38 @@ class Login : AppCompatActivity() {
     private fun createUser(){
         try{
             if(email.text.isNotEmpty() || password.text.isNotEmpty()){
-                val bundle = intent.extras
-                //Insercion de los datos del usuario al SheredPreferences
-                var pref = getSharedPreferences("user_data", Context.MODE_PRIVATE)
-                var editor = pref.edit()
-                editor.putString("email", email.text.toString())
-                editor.putString("password", password.text.toString())
-                editor.putString("name", bundle?.getString("name").toString())
-                editor.putString("gender", bundle?.getString("gender").toString())
-                editor.putInt("age", bundle?.getString("age")?.toIntOrNull() ?: 0)
-                editor.putInt("training", bundle?.getString("training")?.toIntOrNull() ?: 11)
-                editor.putFloat("height", bundle?.getString("height")?.toFloatOrNull() ?: 40.0f)
-                editor.putFloat("weight", bundle?.getString("weight")?.toFloatOrNull() ?: 20.0f)
-                editor.putString("goal", bundle?.getString("goal").toString())
-                editor.commit() //Guardado de los datos
+                if(emailValidation(email.text.toString())){
+                    if(passwordValidation(password.text.toString())){
+                        val bundle = intent.extras
+                        //Insercion de los datos del usuario al SheredPreferences
+                        var pref = getSharedPreferences("user_data", Context.MODE_PRIVATE)
+                        var editor = pref.edit()
+                        editor.putString("email", email.text.toString())
+                        editor.putString("password", password.text.toString())
+                        editor.putString("name", bundle?.getString("name").toString())
+                        editor.putString("gender", bundle?.getString("gender").toString())
+                        editor.putInt("age", bundle?.getString("age")?.toIntOrNull() ?: 0)
+                        editor.putInt("training", bundle?.getString("training")?.toIntOrNull() ?: 11)
+                        editor.putFloat("height", bundle?.getString("height")?.toFloatOrNull() ?: 40.0f)
+                        editor.putFloat("weight", bundle?.getString("weight")?.toFloatOrNull() ?: 20.0f)
+                        editor.putString("goal", bundle?.getString("goal").toString())
+                        editor.commit() //Guardado de los datos
 
 
-                //INICIO DEL TAB NAVIGATION
-                val intent = Intent(this, Menu::class.java)
-                startActivity(intent)
+                        //INICIO DEL TAB NAVIGATION
+                        val intent = Intent(this, Menu::class.java)
+                        startActivity(intent)
+                    }
+                    else{
+                        shoWarning("Contraseña incorrecta", "password")
+                    }
+                }
+                else{
+                    shoWarning("Email incorrecto", "email")
+                }
             }
             else{
-                shoWarning("Rellene todos los campos")
+                shoWarning("Rellene todos los campos", "both")
             }
         }
         catch (ex: Exception){
@@ -103,10 +115,33 @@ class Login : AppCompatActivity() {
     }
 
     //Metodo de señalizacion de error al ingresar
-    private fun shoWarning(text: String){
-        email.setHintTextColor(Color.RED)
-        password.setHintTextColor(Color.RED)
-        email.hint = text
-        password.hint = text
+    private fun shoWarning(text: String, type: String){
+        if(type.equals("email")){
+            email.setText("")
+            email.setHintTextColor(Color.RED)
+            email.hint = text
+        }
+        else if (type.equals("password")){
+            password.setText("")
+            password.setHintTextColor(Color.RED)
+            password.hint = text
+        }
+        else{
+            email.setHintTextColor(Color.RED)
+            password.setHintTextColor(Color.RED)
+            email.hint = text
+            password.hint = text
+        }
+    }
+
+    private fun emailValidation(email: String): Boolean {
+        val emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+        return email.matches(emailRegex.toRegex())
+    }
+
+    private fun passwordValidation(password: String): Boolean {
+        val passwordPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$"
+        val passwordMatcher = Regex(passwordPattern)
+        return passwordMatcher.matches(password)
     }
 }

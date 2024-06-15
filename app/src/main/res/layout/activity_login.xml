@@ -24,12 +24,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:layout_marginStart="-80dp"
             android:layout_marginTop="20dp"
             android:textStyle="bold"
             android:layout_gravity="center"
             android:textColor="@color/primary"
+            style="@style/PoppinsText"
             android:text="@string/banner"/>
 
         <TextView
@@ -39,9 +40,10 @@
             android:layout_gravity="end"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="15dp"
-            android:textSize="25sp"
+            android:textSize="23sp"
             android:textStyle="bold"
             android:textColor="@color/white"
+            style="@style/PoppinsText"
             android:text="@string/custom_banner"/>
     </FrameLayout>
 
@@ -61,7 +63,8 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            style="@style/PoppinsText"
             android:text="@string/lb_email"/>
 
         <EditText
@@ -82,7 +85,8 @@
             android:textStyle="bold"
             android:layout_marginTop="15dp"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            style="@style/PoppinsText"
             android:text="@string/lb_password"/>
 
             <EditText
@@ -105,6 +109,7 @@
             android:textColor="@color/white"
             android:backgroundTint="@color/primary"
             android:text="@string/btn_submit"
+            style="@style/PoppinsText"
             android:onClick="login"/>
 
         <ImageView

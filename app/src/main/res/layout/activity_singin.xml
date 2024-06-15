@@ -31,10 +31,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_createAccount"
-            android:layout_marginStart="70dp"
+            android:layout_marginStart="67dp"
             android:textColor="@color/black"
+            style="@style/PoppinsText"
             android:textStyle="bold"
-            android:textSize="30sp"/>
+            android:textSize="28sp"/>
 
     </LinearLayout>
 
@@ -52,8 +53,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/black"
+        style="@style/PoppinsText"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="5dp"
         android:textStyle="bold"
@@ -79,6 +81,7 @@
                 app:chipStrokeColor="@color/text_gray"
                 app:chipStrokeWidth="1dp"
                 android:textColor="@color/black"
+                style="@style/PoppinsText"
                 app:chipBackgroundColor="@android:color/white"
                 android:layout_marginEnd="10dp"
                 app:chipMinTouchTargetSize="0dp"
@@ -91,6 +94,7 @@
                 android:layout_marginEnd="10dp"
                 app:chipStrokeColor="@color/text_gray"
                 app:chipStrokeWidth="1dp"
+                style="@style/PoppinsText"
                 android:textSize="18sp"
                 android:textColor="@color/black"
                 app:chipBackgroundColor="@android:color/white"
@@ -103,6 +107,7 @@
                 android:layout_height="50dp"
                 app:chipStrokeColor="@color/text_gray"
                 app:chipStrokeWidth="1dp"
+                style="@style/PoppinsText"
                 android:textSize="18sp"
                 android:textColor="@color/black"
                 app:chipBackgroundColor="@android:color/white"
@@ -127,6 +132,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="@color/black"
+            style="@style/PoppinsText"
             android:textSize="18sp"
             android:text="@string/lb_name"/>
 
@@ -138,7 +144,8 @@
             android:background="@drawable/edittext_background"
             android:textColor="@color/black"
             android:textColorHint="#808080"
-            android:padding="12dp"
+            style="@style/PoppinsText"
+            android:padding="10dp"
             android:hint="@string/txt_name" />
 
         <TextView
@@ -146,6 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            style="@style/PoppinsText"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
             android:textSize="18sp"
@@ -159,7 +167,8 @@
             android:background="@drawable/edittext_background"
             android:textColor="@color/black"
             android:textColorHint="#808080"
-            android:padding="12dp"
+            style="@style/PoppinsText"
+            android:padding="10dp"
             android:hint="@string/txt_age"/>
 
         <TextView
@@ -168,6 +177,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="18sp"
+            style="@style/PoppinsText"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
             android:text="@string/lb_weight"/>
@@ -187,6 +197,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
+            style="@style/PoppinsText"
             android:text="@string/lb_trainingf"/>
 
 
@@ -199,6 +210,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:backgroundTint="@color/primary"
+            style="@style/PoppinsText"
             android:text="@string/btn_next"
             android:onClick="nextForm"/>
     </LinearLayout>

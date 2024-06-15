@@ -30,10 +30,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
+            android:layout_marginStart="66dp"
             android:text="@string/text_createAccount"
+            style="@style/PoppinsText"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -50,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
             android:layout_marginTop="15dp"
+            style="@style/PoppinsText"
             android:text="Tu Estatura"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -59,9 +61,10 @@
             android:id="@+id/lb_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="190dp"
+            android:layout_marginStart="180dp"
             android:layout_marginTop="15dp"
             android:text="170 cm"
+            style="@style/PoppinsText"
             android:textColor="@color/black"
             android:textSize="18sp" />
     </LinearLayout>
@@ -111,6 +114,7 @@
             android:layout_gravity="center"
             android:text="60 kg"
             android:textColor="@color/black"
+            style="@style/PoppinsText"
             android:textSize="18sp" />
 
         <SeekBar
@@ -140,6 +144,7 @@
             android:layout_height="wrap_content"
             android:text="Cual es tu meta"
             android:textColor="@color/black"
+            style="@style/PoppinsText"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -150,6 +155,7 @@
             android:layout_marginTop="5dp"
             android:background="@drawable/edittext_background"
             android:spinnerMode="dropdown"
+            style="@style/PoppinsText"
             android:padding="12dp" />
 
         <Button
@@ -160,6 +166,7 @@
             android:backgroundTint="@color/primary"
             android:onClick="finish"
             android:text="Terminar"
+            style="@style/PoppinsText"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
