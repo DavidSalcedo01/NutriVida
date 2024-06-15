@@ -18,7 +18,6 @@ class home : Fragment() {
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private var param1: String? = null
     private var param2: String? = null
-    private var pro: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
