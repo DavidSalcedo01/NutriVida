@@ -1,6 +1,8 @@
 package com.example.nutrivida
 
 import android.app.Dialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,6 +33,8 @@ class home : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val username = sharedPref.getString("name", "No Name")
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val progressBarA: ProgressBar = view.findViewById(R.id.progressBar_a)
         val progressBarS: ProgressBar = view.findViewById(R.id.progressBar_s)
@@ -39,6 +43,10 @@ class home : Fragment() {
         val progressBarP: ProgressBar = view.findViewById(R.id.progressBar_principal)
         val progreso: TextView = view.findViewById(R.id.text_pro)
         val addRegis: Button = view.findViewById(R.id.btn_progreso)
+
+        val nombre: TextView = view.findViewById(R.id.text_UserName)
+
+        nombre.text = "Hola, $username"
 
         addRegis.setOnClickListener {
             val regisDialog = Dialog(requireContext())
@@ -58,6 +66,7 @@ class home : Fragment() {
                 val aguaInt = agua.text.toString().toInt()
                 val suenoInt = sue.text.toString().toInt()
                 val calInt = cal.text.toString().toInt()
+
 
                 val calR = (calInt / 2000.0) * 100
 

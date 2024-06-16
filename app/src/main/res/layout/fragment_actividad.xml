@@ -16,29 +16,29 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="196dp"
-                android:layout_height="81dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_margin="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imageView8"
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/user_image" />
 
                 <TextView
                     android:id="@+id/text_UserName"
-                    android:layout_width="80dp"
-                    android:layout_height="32dp"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="Hola, Usuario"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    style="@style/PoppinsText"/>
 
             </LinearLayout>
 
@@ -48,8 +48,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="Progreso de tu Actividad"
+                android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/PoppinsText"/>
 
             <LinearLayout
                 android:layout_width="370dp"
@@ -73,7 +75,8 @@
                         android:layout_weight="1"
                         android:text="Ejercicio"
                         android:textColor="@color/white"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        style="@style/PoppinsText"/>
 
                     <Button
                         android:id="@+id/button_ejercicio"
@@ -83,7 +86,8 @@
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/holo_green_light"
                         android:text="Continuar"
-                        android:textColor="@color/primary" />
+                        android:textColor="@color/primary"
+                        style="@style/PoppinsText"/>
                 </LinearLayout>
 
                 <TextView
@@ -92,7 +96,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Progreso: 0%"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    style="@style/PoppinsText"/>
 
                 <ProgressBar
                     android:id="@+id/progressBar2"
@@ -134,8 +139,10 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
+                        android:textColor="@color/black"
                         android:text="Rutina para perder peso"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        style="@style/PoppinsText"/>
 
                     <TextView
                         android:id="@+id/text_tiempoRutina"
@@ -144,7 +151,9 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="26:09" />
+                        android:text="26:09"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -180,7 +189,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:text="Rutina para ganar musculo"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
 
                     <TextView
                         android:id="@+id/text_tiempoRutina2"
@@ -189,7 +200,9 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="10:31" />
+                        android:text="10:31"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -226,7 +239,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:text="Rutina para aumentar estatura"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
 
                     <TextView
                         android:id="@+id/text_tiempoRutina3"
@@ -235,7 +250,9 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="19:20" />
+                        android:text="19:20"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -256,7 +273,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/screen4"
                     android:contentDescription="video4"
-                    android:src="@android:drawable/ic_media_play" />
+                    android:src="@android:drawable/ic_media_play"
+                    android:textColor="@color/black"
+                    style="@style/PoppinsText"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -272,7 +291,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:text="Rutina Taichi Para Principiantes"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
 
                     <TextView
                         android:id="@+id/text_tiempoRutina4"
@@ -281,7 +302,9 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="11:59" />
+                        android:text="11:59"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -318,7 +341,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:text="Rutina de Pilates para principiante"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
 
                     <TextView
                         android:id="@+id/text_tiempoRutina5"
@@ -327,7 +352,9 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="11:04" />
+                        android:text="11:04"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -365,7 +392,9 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:text="Rutina de Abdomen"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
 
                     <TextView
                         android:id="@+id/text_tiempoRutina6"
@@ -374,7 +403,9 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:text="8:19" />
+                        android:text="8:19"
+                        android:textColor="@color/black"
+                        style="@style/PoppinsText"/>
                 </LinearLayout>
             </LinearLayout>
 

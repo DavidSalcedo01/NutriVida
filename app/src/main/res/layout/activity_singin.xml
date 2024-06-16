@@ -6,12 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:backgroundTint="@color/white"
+    android:background="@color/white"
     tools:context=".SingIn">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -23,15 +25,17 @@
             android:layout_marginStart="5dp"
             app:srcCompat="@drawable/arrow_back"
             android:onClick="back"
-            android:contentDescription="back"/>
+            android:contentDescription="@string/btn_goBack"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_createAccount"
-            android:layout_marginStart="70dp"
+            android:layout_marginStart="67dp"
+            android:textColor="@color/black"
+            style="@style/PoppinsText"
             android:textStyle="bold"
-            android:textSize="30sp"/>
+            android:textSize="28sp"/>
 
     </LinearLayout>
 
@@ -39,21 +43,23 @@
         android:id="@+id/imageView2"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="55dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/user_image"
-        android:contentDescription="user"/>
+        android:contentDescription="@string/user_image"/>
 
     <TextView
         android:id="@+id/lb_gender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        style="@style/PoppinsText"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="5dp"
         android:textStyle="bold"
-        android:text="Genero"/>
+        android:text="@string/lb_gender"/>
 
     <LinearLayout
         android:id="@+id/lyt_gender"
@@ -74,9 +80,12 @@
                 android:textSize="18sp"
                 app:chipStrokeColor="@color/text_gray"
                 app:chipStrokeWidth="1dp"
+                android:textColor="@color/black"
+                style="@style/PoppinsText"
+                app:chipBackgroundColor="@android:color/white"
                 android:layout_marginEnd="10dp"
                 app:chipMinTouchTargetSize="0dp"
-                android:text="Masculino"/>
+                android:text="@string/chp_male"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chp_femaleGender"
@@ -85,9 +94,12 @@
                 android:layout_marginEnd="10dp"
                 app:chipStrokeColor="@color/text_gray"
                 app:chipStrokeWidth="1dp"
+                style="@style/PoppinsText"
                 android:textSize="18sp"
+                android:textColor="@color/black"
+                app:chipBackgroundColor="@android:color/white"
                 app:chipMinTouchTargetSize="0dp"
-                android:text="Femenino"/>
+                android:text="@string/chp_female"/>
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chp_noneGender"
@@ -95,9 +107,12 @@
                 android:layout_height="50dp"
                 app:chipStrokeColor="@color/text_gray"
                 app:chipStrokeWidth="1dp"
+                style="@style/PoppinsText"
                 android:textSize="18sp"
+                android:textColor="@color/black"
+                app:chipBackgroundColor="@android:color/white"
                 app:chipMinTouchTargetSize="0dp"
-                android:text="Ninguno"/>
+                android:text="@string/chp_none"/>
 
         </com.google.android.material.chip.ChipGroup>
 
@@ -116,8 +131,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textColor="@color/black"
+            style="@style/PoppinsText"
             android:textSize="18sp"
-            android:text="Tu Nombre"/>
+            android:text="@string/lb_name"/>
 
         <EditText
             android:id="@+id/txt_name"
@@ -125,18 +142,22 @@
             android:layout_height="50dp"
             android:inputType="text"
             android:background="@drawable/edittext_background"
+            android:textColor="@color/black"
             android:textColorHint="#808080"
-            android:padding="12dp"
-            android:hint="Introduce tu nombre" />
+            style="@style/PoppinsText"
+            android:padding="10dp"
+            android:hint="@string/txt_name" />
 
         <TextView
             android:id="@+id/lb_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            style="@style/PoppinsText"
+            android:textColor="@color/black"
             android:layout_marginTop="20dp"
             android:textSize="18sp"
-            android:text="Tu Edad"/>
+            android:text="@string/lb_age"/>
 
         <EditText
             android:id="@+id/txt_age"
@@ -144,9 +165,11 @@
             android:layout_height="50dp"
             android:inputType="number"
             android:background="@drawable/edittext_background"
+            android:textColor="@color/black"
             android:textColorHint="#808080"
-            android:padding="12dp"
-            android:hint="Introduce tu edad"/>
+            style="@style/PoppinsText"
+            android:padding="10dp"
+            android:hint="@string/txt_age"/>
 
         <TextView
             android:id="@+id/lb_weight"
@@ -154,8 +177,10 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="18sp"
+            style="@style/PoppinsText"
+            android:textColor="@color/black"
             android:layout_marginTop="20dp"
-            android:text="Tu Actividad Fisica"/>
+            android:text="@string/lb_weight"/>
 
 
         <SeekBar
@@ -172,7 +197,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="Entrena de 0-2 veces por semana"/>
+            style="@style/PoppinsText"
+            android:text="@string/lb_trainingf"/>
 
 
         <Button
@@ -182,8 +208,10 @@
             android:textSize="15sp"
             android:layout_marginTop="25dp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:backgroundTint="@color/primary"
-            android:text="Siguiente"
+            style="@style/PoppinsText"
+            android:text="@string/btn_next"
             android:onClick="nextForm"/>
     </LinearLayout>
 

@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".Login">
 
@@ -16,37 +17,41 @@
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="-20dp"
             app:srcCompat="@drawable/wave2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
-            android:layout_marginLeft="-80dp"
+            android:textSize="24sp"
+            android:layout_marginStart="-80dp"
             android:layout_marginTop="20dp"
             android:textStyle="bold"
             android:layout_gravity="center"
             android:textColor="@color/primary"
-            android:text="Regreso a la vida"/>
+            style="@style/PoppinsText"
+            android:text="@string/banner"/>
 
         <TextView
+            android:id="@+id/lb_banner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="60dp"
-            android:layout_marginRight="15dp"
-            android:textSize="25sp"
+            android:layout_marginEnd="15dp"
+            android:textSize="23sp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:text="Que gusto \n verte de nuevo!"/>
+            style="@style/PoppinsText"
+            android:text="@string/custom_banner"/>
     </FrameLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="23dp"
         android:layout_marginRight="23dp"
         android:orientation="vertical">
@@ -57,8 +62,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="18sp"
-            android:text="E-mail"/>
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            style="@style/PoppinsText"
+            android:text="@string/lb_email"/>
 
         <EditText
             android:id="@+id/txt_email"
@@ -66,6 +73,7 @@
             android:layout_height="50dp"
             android:inputType="textEmailAddress"
             android:background="@drawable/edittext_login"
+            android:textColor="@color/black"
             android:textColorHint="#808080"
             android:padding="12dp" />
 
@@ -76,14 +84,17 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:layout_marginTop="15dp"
-            android:textSize="18sp"
-            android:text="Password"/>
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            style="@style/PoppinsText"
+            android:text="@string/lb_password"/>
 
             <EditText
                 android:id="@+id/txt_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:inputType="textPassword"
+                android:textColor="@color/black"
                 android:background="@drawable/edittext_login"
                 android:textColorHint="#808080"
                 android:padding="12dp" />
@@ -95,8 +106,10 @@
             android:textSize="15sp"
             android:layout_marginTop="25dp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:backgroundTint="@color/primary"
-            android:text="Ingresar"
+            android:text="@string/btn_submit"
+            style="@style/PoppinsText"
             android:onClick="login"/>
 
         <ImageView
@@ -113,26 +126,29 @@
             android:gravity="center"
             android:orientation="horizontal">
             <ImageButton
+                android:id="@+id/btn_google"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="@color/white"
-                android:contentDescription="Google"
+                android:contentDescription="@string/btn_google"
                 android:src="@drawable/ic_google"/>
 
             <ImageButton
+                android:id="@+id/btn_facebook"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="@color/white"
-                android:contentDescription="Facebook"
+                android:contentDescription="@string/btn_facebook"
                 android:src="@drawable/ic_facebook"/>
 
             <ImageButton
+                android:id="@+id/btn_apple"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:backgroundTint="@color/white"
-                android:contentDescription="Apple"
+                android:contentDescription="@string/btn_apple"
                 android:src="@drawable/ic_apple"/>
         </LinearLayout>
     </LinearLayout>

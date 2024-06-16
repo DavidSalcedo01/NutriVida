@@ -1,10 +1,42 @@
 <resources>
+    <!-- Strings activity_main -->
     <string name="app_name">NutriVida</string>
     <string name="title_aplication">Descubre tu nuevo tu</string>
-    <string name="text_singIn">Empezar ahora</string>
-    <string name="text_logIn">Ya tengo una cuenta? LogIn</string>
+    <string name="btn_singIn">Empezar ahora</string>
+    <string name="btn_logIn">Ya tengo una cuenta? LogIn</string>
     <string name="text_createAccount">Crear cuenta</string>
 
+
+    <!-- Strings activity_login -->
+    <string name="banner">Regreso a la vida</string>
+    <string name="custom_banner">Que gusto \n verte de nuevo!</string>
+    <string name="lb_email">E-mail</string>
+    <string name="lb_password">Password</string>
+    <string name="btn_submit">Ingresar</string>
+    <string name="btn_facebook">Facebook</string>
+    <string name="btn_google">Google</string>
+    <string name="btn_apple">Apple</string>
+
+
+    <!-- Strings activity_singin -->
+    <string name="btn_goBack">back</string>
+    <string name="user_image">user</string>
+    <string name="lb_gender">Genero</string>
+    <string name="chp_male">Masculino</string>
+    <string name="chp_female">Femenino</string>
+    <string name="chp_none">Ninguno</string>
+    <string name="lb_name">Tu Nombre</string>
+    <string name="txt_name">Introduce tu nombre</string>
+    <string name="lb_age">Tu Edad</string>
+    <string name="txt_age">Introduce tu edad</string>
+    <string name="lb_weight">Tu Actividad Fisica</string>
+    <string name="lb_trainingf">Entrena de 0-2 veces por semana</string>
+    <string name="btn_next">Siguiente</string>
+
+    <!-- Strings activity_secondform -->
+
+
+    <!-- OPCIONES SPINNER -->
     <string-array name="goals">
         <item>Pérdida de peso</item>
         <item>Aumento de masa muscular</item>
@@ -18,8 +50,29 @@
         <item>Mejorar el bienestar mental</item>
     </string-array>
 
-    <!-- MENU -->
 
+    <!-- Strings dialog -->
+    <string name="salad_title">Ensalada de \nverduras con atun</string>
+    <string name="sandwich_title">Sandwich de \njamon de pavo</string>
+    <string name="pasta_title">Pasta fusilli con \nsalsa de tomate</string>
+    <string name="eggs_title">Huevos revueltos \ncon tocino</string>
+
+    <string name="salad_description">Echo por una excelente conbinacion entre los mejores vegetales que pueden ayudarte a regular tus procesos estomacales y reducir tu ingensta de calorias</string>
+    <string name="sandwich_description">Excelente fuente de proteina para tu dia ya que contiene tanto ptoteinas como el jamon y el peperoni como carbohidratos necesarios como el Pan blanco</string>
+    <string name="pasta_description">Una gran fuente de carbohidratos gracias a la pasta ademas de contener otros ingredisntes ricos en proteinas como el queso que es de facil dogestion</string>
+    <string name="eggs_description">Guevos revueltos con una porcion de tocino son una de las mejores formas de ingerir proteinas gracias a su gran contenido ademas de su porcion generoza de ensalada</string>
+
+    <string name="salad_ingredients">Lechuga, Pepino, tomate, cebolla, atun</string>
+    <string name="sandwich_ingredients">Pan balnco, jamon de pavo, peperoni, lechuga, tomate</string>
+    <string name="pasta_ingredients">Pasta fusilli, salsa de tomate, brocoli, queso</string>
+    <string name="eggs_ingredients">Huevos, tocino, pan integral, lechuga</string>
+
+    <string name="salad_macros">Calorias: 89KCAL\nCarbohidratos: 30g\nProteina: 29g\nGrasas: 6g</string>
+    <string name="sandwich_macros">Calorias: 225KCAL\nCarbohidratos: 150g\nProteina: 200g\nGrasas: 60g</string>
+    <string name="pasta_macros">Calorias: 131KCAL\nCarbohidratos: 210g\nProteina: 15g\nGrasas: 30g</string>
+    <string name="eggs_macros">Calorias: 148KCAL\nCarbohidratos: 100g\nProteina: 310g\nGrasas: 75g</string>
+
+    <!-- MENU -->
     <string name="home">HOME</string>
     <string name="calorias">CALORIAS</string>
     <string name="actividad">ACTIVIDAD</string>
