@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:backgroundTint="@color/white"
+    android:background="@color/white"
+    tools:context=".SingIn">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="10dp"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/arrow_back"
+            android:onClick="back"
+            android:contentDescription="@string/btn_goBack"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_createAccount"
+            android:layout_marginStart="70dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="55dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/user_image"
+        android:contentDescription="@string/user_image"/>
+
+    <TextView
+        android:id="@+id/lb_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:textStyle="bold"
+        android:text="@string/lb_gender"/>
+
+    <LinearLayout
+        android:id="@+id/lyt_gender"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/grp_genderGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chp_maleGender"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                app:chipStrokeColor="@color/text_gray"
+                app:chipStrokeWidth="1dp"
+                android:textColor="@color/black"
+                app:chipBackgroundColor="@android:color/white"
+                android:layout_marginEnd="10dp"
+                app:chipMinTouchTargetSize="0dp"
+                android:text="@string/chp_male"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chp_femaleGender"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                app:chipStrokeColor="@color/text_gray"
+                app:chipStrokeWidth="1dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                app:chipBackgroundColor="@android:color/white"
+                app:chipMinTouchTargetSize="0dp"
+                android:text="@string/chp_female"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chp_noneGender"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                app:chipStrokeColor="@color/text_gray"
+                app:chipStrokeWidth="1dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                app:chipBackgroundColor="@android:color/white"
+                app:chipMinTouchTargetSize="0dp"
+                android:text="@string/chp_none"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lb_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:text="@string/lb_name"/>
+
+        <EditText
+            android:id="@+id/txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:background="@drawable/edittext_background"
+            android:textColor="@color/black"
+            android:textColorHint="#808080"
+            android:padding="12dp"
+            android:hint="@string/txt_name" />
+
+        <TextView
+            android:id="@+id/lb_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:text="@string/lb_age"/>
+
+        <EditText
+            android:id="@+id/txt_age"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:background="@drawable/edittext_background"
+            android:textColor="@color/black"
+            android:textColorHint="#808080"
+            android:padding="12dp"
+            android:hint="@string/txt_age"/>
+
+        <TextView
+            android:id="@+id/lb_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="@string/lb_weight"/>
+
+
+        <SeekBar
+            android:id="@+id/sbr_trainingf"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:splitTrack="false"
+            android:thumb="@drawable/seekbar_thumb"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:max="6" />
+
+        <TextView
+            android:id="@+id/lb_trainingf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/lb_trainingf"/>
+
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="15sp"
+            android:layout_marginTop="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/primary"
+            android:text="@string/btn_next"
+            android:onClick="nextForm"/>
+    </LinearLayout>
+
+
+</LinearLayout>
