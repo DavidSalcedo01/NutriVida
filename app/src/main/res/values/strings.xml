@@ -50,6 +50,28 @@
         <item>Mejorar el bienestar mental</item>
     </string-array>
 
+
+    <!-- Strings dialog -->
+    <string name="salad_title">Ensalada de \nverduras con atun</string>
+    <string name="sandwich_title">Sandwich de \njamon de pavo</string>
+    <string name="pasta_title">Pasta fusilli con \nsalsa de tomate</string>
+    <string name="eggs_title">Huevos revueltos \ncon tocino</string>
+
+    <string name="salad_description">Echo por una excelente conbinacion entre los mejores vegetales que pueden ayudarte a regular tus procesos estomacales y reducir tu ingensta de calorias</string>
+    <string name="sandwich_description">Excelente fuente de proteina para tu dia ya que contiene tanto ptoteinas como el jamon y el peperoni como carbohidratos necesarios como el Pan blanco</string>
+    <string name="pasta_description">Una gran fuente de carbohidratos gracias a la pasta ademas de contener otros ingredisntes ricos en proteinas como el queso que es de facil dogestion</string>
+    <string name="eggs_description">Guevos revueltos con una porcion de tocino son una de las mejores formas de ingerir proteinas gracias a su gran contenido ademas de su porcion generoza de ensalada</string>
+
+    <string name="salad_ingredients">Lechuga, Pepino, tomate, cebolla, atun</string>
+    <string name="sandwich_ingredients">Pan balnco, jamon de pavo, peperoni, lechuga, tomate</string>
+    <string name="pasta_ingredients">Pasta fusilli, salsa de tomate, brocoli, queso</string>
+    <string name="eggs_ingredients">Huevos, tocino, pan integral, lechuga</string>
+
+    <string name="salad_macros">Calorias: 89KCAL\nCarbohidratos: 30g\nProteina: 29g\nGrasas: 6g</string>
+    <string name="sandwich_macros">Calorias: 225KCAL\nCarbohidratos: 150g\nProteina: 200g\nGrasas: 60g</string>
+    <string name="pasta_macros">Calorias: 131KCAL\nCarbohidratos: 210g\nProteina: 15g\nGrasas: 30g</string>
+    <string name="eggs_macros">Calorias: 148KCAL\nCarbohidratos: 100g\nProteina: 310g\nGrasas: 75g</string>
+
     <!-- MENU -->
     <string name="home">HOME</string>
     <string name="calorias">CALORIAS</string>

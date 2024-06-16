@@ -1,6 +1,8 @@
 package com.example.nutrivida
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
@@ -29,6 +31,11 @@ class actividad : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_actividad, container, false)
+        val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val username = sharedPref.getString("name", "No Name")
+
+        val nombre: TextView = view.findViewById(R.id.text_UserName)
+        nombre.text = "Hola, $username"
 
         val imbVideo1: ImageButton = view.findViewById(R.id.imb_video1)
         val imbVideo2: ImageButton = view.findViewById(R.id.imb_video2)

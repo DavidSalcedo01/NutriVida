@@ -34,7 +34,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/PoppinsText"/>
 
             <EditText
                 android:id="@+id/txt_sueno"
@@ -49,7 +50,8 @@
                 android:inputType="number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_agua" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_agua"
+                style="@style/PoppinsText"/>
 
             <EditText
                 android:id="@+id/txt_calorias"
@@ -65,7 +67,8 @@
                 app:layout_constraintBottom_toTopOf="@+id/btn_reg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_sueno" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_sueno"
+                style="@style/PoppinsText"/>
 
             <Button
                 android:id="@+id/btn_reg"
@@ -76,12 +79,14 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
+                android:textColor="@color/white"
                 android:backgroundTint="@color/primary"
                 android:text="Registrar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.506"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="275dp" />
+                tools:layout_editor_absoluteY="275dp"
+                style="@style/PoppinsText"/>
         </LinearLayout>
 
     </FrameLayout>

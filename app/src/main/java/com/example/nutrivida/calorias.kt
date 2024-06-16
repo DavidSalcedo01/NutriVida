@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ListView
+import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Locale
 
@@ -27,11 +28,19 @@ private const val ARG_PARAM2 = "param2"
  * Use the [calorias.newInstance] factory method to
  * create an instance of this fragment.
  */
-class calorias : Fragment() {
+class calorias : Fragment(){
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var lst_meals: ListView
+    private lateinit var lb_calories: TextView
+    private lateinit var prb_calories: ProgressBar
+    private lateinit var lb_carbohydrates: TextView
+    private lateinit var prb_carbohydrates: ProgressBar
+    private lateinit var lb_protein: TextView
+    private lateinit var prb_protein: ProgressBar
+    private lateinit var lb_fat: TextView
+    private lateinit var prb_fat: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +59,17 @@ class calorias : Fragment() {
         val view = inflater.inflate(R.layout.fragment_calorias, container, false)
         val lb_day = view.findViewById<TextView>(R.id.lb_day)
 
+        lb_calories = view.findViewById(R.id.lb_calories)
+        prb_calories = view.findViewById(R.id.prb_calories)
+        lb_carbohydrates = view.findViewById(R.id.lb_carbohydrates)
+        prb_carbohydrates = view.findViewById(R.id.prb_carbohydrates)
+        lb_protein = view.findViewById(R.id.lb_protein)
+        prb_protein = view.findViewById(R.id.prb_protein)
+        lb_fat = view.findViewById(R.id.lb_fat)
+        prb_fat = view.findViewById(R.id.prb_fat)
+
+
+
         //Uso del dato nombre de usuario
         val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
         val username = sharedPref.getString("name", "No Name")
@@ -60,10 +80,51 @@ class calorias : Fragment() {
         val adapter = CustomAdapter(requireContext(), items)
         lst_meals.adapter = adapter
 
+        lst_meals.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+            showItemDialog(items[position])
+            updateProgress(items[position])
+        }
+
 
         return view
     }
 
+    private fun showItemDialog(item: String) {
+        val dialog = MealDialogFragment.newInstance(item)
+        dialog.show(parentFragmentManager, "ItemDialogFragment")
+    }
+
+    private fun updateProgress(item: String){
+        if (item.equals("Ensalada@2121165466")) {
+            prb_calories.progress += 9
+            prb_carbohydrates.progress += 3
+            prb_protein.progress += 3
+            prb_fat.progress += 0
+        } else if (item.equals("Sandwich@2121165467")) {
+            prb_calories.progress += 22
+            prb_carbohydrates.progress += 15
+            prb_protein.progress += 20
+            prb_fat.progress += 6
+        } else if (item.equals("Pasta@2121165465")) {
+            prb_calories.progress += 13
+            prb_carbohydrates.progress += 21
+            prb_protein.progress += 2
+            prb_fat.progress += 3
+        } else if (item.equals("Huevos@2121165464")) {
+            prb_calories.progress += 15
+            prb_carbohydrates.progress += 10
+            prb_protein.progress += 31
+            prb_fat.progress += 8
+        }
+
+        lb_calories.text = prb_calories.progress.toString()
+        val carb = prb_calories.progress.toString()
+        lb_carbohydrates.text = "$carb%"
+        val prot = prb_carbohydrates.progress.toString()
+        lb_protein.text = "$prot%"
+        val fat = prb_fat.progress.toString()
+        lb_fat.text = "$fat%"
+    }
 
     private fun date(): String{
         val calendar = Calendar.getInstance()
@@ -90,4 +151,5 @@ class calorias : Fragment() {
                 }
             }
     }
+
 }

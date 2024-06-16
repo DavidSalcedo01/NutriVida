@@ -47,20 +47,23 @@ class CustomAdapter(private val context: Context, private val dataMeals: List<St
         val image = parts[1]
 
         holder.nameMeal.text = name
-        holder.calories.text = "230 KCAL"
+
         if(image.equals("2121165466")){
             holder.imgMeal.setImageResource(R.drawable.salad)
+            holder.calories.text = "89KCAL"
         }
         else if(image.equals("2121165465")){
-            holder.imgMeal.setImageResource(R.drawable.sandwich)
+            holder.imgMeal.setImageResource(R.drawable.pasta)
+            holder.calories.text = "225KCAL"
         }
         else if(image.equals("2121165467")){
-            holder.imgMeal.setImageResource(R.drawable.pasta)
+            holder.imgMeal.setImageResource(R.drawable.sandwich)
+            holder.calories.text = "131KCAL"
         }
         else if(image.equals("2121165464")){
             holder.imgMeal.setImageResource(R.drawable.eggs)
+            holder.calories.text = "148KCAL"
         }
-        //holder.imgMeal.setImageResource(image.toInt())
 
         return view
     }

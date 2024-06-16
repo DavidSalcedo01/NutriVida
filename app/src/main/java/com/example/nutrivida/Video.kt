@@ -19,6 +19,7 @@ class Video : AppCompatActivity() {
         val videoView: VideoView = findViewById(R.id.videoView)
         val videoUri = intent.getStringExtra("videoUri")
 
+
         videoView.setVideoURI(Uri.parse(videoUri))
         videoView.setMediaController(android.widget.MediaController(this))
         videoView.requestFocus()
