@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8F5E9"
+    android:padding="16dp">
+
+    <!-- Imagen circular del paciente -->
+    <ImageView
+        android:id="@+id/patient_photo"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_patient_photo"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circular_image_background" />
+
+    <!-- Encabezado con el nombre del paciente -->
+    <TextView
+        android:id="@+id/patient_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/patient_photo"
+        android:layout_alignBottom="@id/patient_photo"
+        android:layout_marginStart="16dp"
+        android:text="Nombre del Paciente"
+        android:textColor="#2E7D32"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Fondo verde oscuro para las calorías -->
+
+    <!-- Contenedor para la información de calorías (para asegurar que estén sobre el fondo) -->
+    <View
+        android:id="@+id/calories_background"
+        android:layout_width="wrap_content"
+        android:layout_height="212dp"
+        android:layout_below="@id/patient_photo"
+        android:layout_marginTop="31dp"
+        android:background="#004D40"
+        android:padding="16dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/patient_photo"
+        android:layout_marginTop="32dp"
+        android:padding="16dp"
+        android:background="@android:color/transparent">
+
+        <!-- Texto descriptivo de las calorías -->
+        <TextView
+            android:id="@+id/calories_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Calorías consumidas hoy:"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Valor de las calorías -->
+        <TextView
+            android:id="@+id/calories_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calories_label"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:text="1500 kcal"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <!-- Barra de progreso para las calorías -->
+        <ProgressBar
+            android:id="@+id/calories_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calories_value"
+            android:layout_marginTop="16dp"
+            android:progress="75"
+            android:max="2000"
+            android:progressDrawable="@drawable/progress_bar_states"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Texto del progreso en porcentaje -->
+        <TextView
+            android:id="@+id/progress_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calories_progress_bar"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:text="75%"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Botón Regresar -->
+    <Button
+        android:id="@+id/btn_regresar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/calories_background"
+        android:layout_marginTop="299dp"
+        android:backgroundTint="@color/primary"
+        android:onClick="finish"
+        android:text="Regresar"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
