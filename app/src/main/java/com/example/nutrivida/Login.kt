@@ -20,6 +20,7 @@ class Login : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var login: Button
     private lateinit var banner:TextView
+    private lateinit var passwordWarning:TextView
 
     private var flg: Boolean = true
 
@@ -32,6 +33,7 @@ class Login : AppCompatActivity() {
         password = findViewById(R.id.txt_password)
         login = findViewById(R.id.btn_login)
         banner = findViewById(R.id.lb_banner)
+        passwordWarning = findViewById(R.id.lb_passwordWarning)
 
         //Cambia el texto del boton en funcion si el usuario se va a registrar o loguear
         val bundle = intent.extras
@@ -59,7 +61,7 @@ class Login : AppCompatActivity() {
                 else{
                     email.setText("")
                     password.setText("")
-                    shoWarning("Datos incorrectos", "both")
+                    shoWarning("Datos incorrectos","", "both")
                 }
             }
             catch (ex: Exception){
@@ -98,15 +100,15 @@ class Login : AppCompatActivity() {
                         startActivity(intent)
                     }
                     else{
-                        shoWarning("Contraseña incorrecta", "password")
+                        shoWarning("Contraseña no valida","La contraseña debe contener mayusculas, minusculas, numeros y simbolos", "password")
                     }
                 }
                 else{
-                    shoWarning("Email incorrecto", "email")
+                    shoWarning("Email no valido","", "email")
                 }
             }
             else{
-                shoWarning("Rellene todos los campos", "both")
+                shoWarning("Rellene todos los campos","", "both")
             }
         }
         catch (ex: Exception){
@@ -115,7 +117,7 @@ class Login : AppCompatActivity() {
     }
 
     //Metodo de señalizacion de error al ingresar
-    private fun shoWarning(text: String, type: String){
+    private fun shoWarning(text: String, info: String, type: String){
         if(type.equals("email")){
             email.setText("")
             email.setHintTextColor(Color.RED)
@@ -125,6 +127,8 @@ class Login : AppCompatActivity() {
             password.setText("")
             password.setHintTextColor(Color.RED)
             password.hint = text
+            passwordWarning.text = info
+
         }
         else{
             email.setHintTextColor(Color.RED)
@@ -140,7 +144,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun passwordValidation(password: String): Boolean {
-        val passwordPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$"
+        val passwordPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!?])(?=\\S+$).{8,}$"
         val passwordMatcher = Regex(passwordPattern)
         return passwordMatcher.matches(password)
     }

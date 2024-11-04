@@ -60,7 +60,7 @@
                 android:layout_width="373dp"
                 android:layout_height="187dp"
                 android:layout_margin="20dp"
-                android:background="@drawable/panel"
+                android:background="@drawable/container_background"
                 android:orientation="horizontal"
                 android:scrollbarFadeDuration="90">
 
@@ -224,7 +224,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/panel"
+                    android:background="@drawable/container_background"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -344,7 +344,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="40dp"
-                android:background="@drawable/panel"
+                android:background="@drawable/container_background"
                 android:orientation="vertical">
 
                 <TextView

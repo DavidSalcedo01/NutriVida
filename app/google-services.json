@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "625946423212",
+    "project_id": "nutrivida-9e1de",
+    "storage_bucket": "nutrivida-9e1de.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625946423212:android:6b2e738492904527c85409",
+        "android_client_info": {
+          "package_name": "com.example.nutrivida"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA9ypMSUxP0xBdd6r0UqVwHbSIoZq_QLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
