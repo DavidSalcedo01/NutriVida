@@ -2,6 +2,8 @@ package com.example.nutrivida
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +11,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -55,7 +59,6 @@ class calorias : Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_calorias, container, false)
         val lb_day = view.findViewById<TextView>(R.id.lb_day)
 
@@ -67,14 +70,19 @@ class calorias : Fragment(){
         prb_protein = view.findViewById(R.id.prb_protein)
         lb_fat = view.findViewById(R.id.lb_fat)
         prb_fat = view.findViewById(R.id.prb_fat)
+        val image: ImageView = view.findViewById(R.id.img_userImage)
 
 
 
-        //Uso del dato nombre de usuario
-        val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
-        val username = sharedPref.getString("name", "No Name")
+        //Uso del dato nombre de usuario de Sheredpreferences
+        val resources = ResourceMethods()
+        val username = resources.getFromSharedPreferences(requireContext(), "name", "Usuario")
         lb_day.text = "Hola, $username\n${date()}"
 
+        //Asignacion de la imagen de usuario
+        image.setImageBitmap(resources.loadUserImage(requireContext()))
+
+        //Asignacion de datos a la lista de comidas sugeridas
         lst_meals = view.findViewById(R.id.lst_meals)
         val items = listOf("Ensalada@2121165466", "Sandwich@2121165467", "Pasta@2121165465", "Huevos@2121165464")
         val adapter = CustomAdapter(requireContext(), items)
@@ -85,15 +93,16 @@ class calorias : Fragment(){
             updateProgress(items[position])
         }
 
-
         return view
     }
 
+    //Muestra la ventana de comida segun sea el caso
     private fun showItemDialog(item: String) {
         val dialog = MealDialogFragment.newInstance(item)
         dialog.show(parentFragmentManager, "ItemDialogFragment")
     }
 
+    //Metodo para actualizar los progresos de alimentacion del usuario
     private fun updateProgress(item: String){
         if (item.equals("Ensalada@2121165466")) {
             prb_calories.progress += 9

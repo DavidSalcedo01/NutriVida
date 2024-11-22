@@ -1,13 +1,11 @@
 package com.example.nutrivida
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
@@ -43,12 +41,16 @@ class Perfil : Fragment() {
         val weight_value = view.findViewById<TextView>(R.id.weight_value)
         val height_value = view.findViewById<TextView>(R.id.height_value)
         val age_value = view.findViewById<TextView>(R.id.age_value)
+        val image: ImageView = view.findViewById(R.id.img_userImage)
 
-        val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
-        val username = sharedPref.getString("name", "No Name")
-        val weight = sharedPref.getFloat("weight", 60f)
-        val height = sharedPref.getFloat("height", 170f)
-        val age = sharedPref.getInt("age", 0)
+
+        //Busqueda en SheredPreferences para el llenado de datos
+        val resources = ResourceMethods()
+        val username: String = resources.getFromSharedPreferences(requireContext(), "name", "Usuario")
+        val height: Float = resources.getFromSharedPreferences(requireContext(), "height", 0.0f)
+        val weight: Float = resources.getFromSharedPreferences(requireContext(), "weight", 0.0f)
+        val age: Int = resources.getFromSharedPreferences(requireContext(), "age", 0)
+        image.setImageBitmap(resources.loadUserImage(requireContext()))
 
         profile_name.text = username
         weight_value.text = "$weight kg"

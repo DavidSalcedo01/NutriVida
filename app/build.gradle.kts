@@ -41,13 +41,19 @@ android {
 dependencies {
     implementation ("androidx.fragment:fragment-ktx:1.5.2")
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
+    //implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.appcompat.v130)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
     implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-appcheck-playintegrity")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.0.0")
+    implementation("com.google.firebase:firebase-auth-ktx:21.0.0")
+    implementation(libs.play.services.fitness)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }

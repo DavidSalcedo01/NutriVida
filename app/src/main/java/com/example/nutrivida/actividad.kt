@@ -1,8 +1,6 @@
 package com.example.nutrivida
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
@@ -10,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -29,13 +28,19 @@ class actividad : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val view = inflater.inflate(R.layout.fragment_actividad, container, false)
-        val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
-        val username = sharedPref.getString("name", "No Name")
-
         val nombre: TextView = view.findViewById(R.id.text_UserName)
+        val image: ImageView = view.findViewById(R.id.img_userImage)
+
+
+        //Uso del dato nombre de usuario de Sheredpreferences
+        val resources = ResourceMethods()
+        val username = resources.getFromSharedPreferences(requireContext(), "name", "Usuario")
         nombre.text = "Hola, $username"
+
+        //Asignacion de la imagen de usuario
+        image.setImageBitmap(resources.loadUserImage(requireContext()))
+
 
         val imbVideo1: ImageButton = view.findViewById(R.id.imb_video1)
         val imbVideo2: ImageButton = view.findViewById(R.id.imb_video2)
@@ -55,6 +60,7 @@ class actividad : Fragment() {
         val progressBar: ProgressBar = view.findViewById(R.id.progressBar2)
         val textEjercicioP: TextView = view.findViewById(R.id.text_EjercicioP)
         val ejercicio: TextView = view.findViewById(R.id.text_actividad)
+
 
         buttonEjercicio.setOnClickListener {
             if (isTimerRunning) {

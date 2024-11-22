@@ -2,23 +2,27 @@ package com.example.nutrivida
 
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.nfc.FormatException
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet.Layout
 import com.google.android.material.chip.Chip
+import java.io.File
 
 class SingIn : AppCompatActivity() {
+    private val PICK_IMAGE_REQUEST_CODE = 1
     private lateinit var maleGender: Chip
     private lateinit var femaleGender: Chip
     private lateinit var noneGender: Chip
+    private lateinit var image: ImageView
     private lateinit var name: EditText
     private lateinit var age: EditText
     private lateinit var traning: SeekBar
@@ -27,6 +31,7 @@ class SingIn : AppCompatActivity() {
 
     private var traningf: Int = 0
     private var gender: String = ""
+    var selectedImageUri: Uri? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +41,7 @@ class SingIn : AppCompatActivity() {
         maleGender = findViewById(R.id.chp_maleGender)
         femaleGender = findViewById(R.id.chp_femaleGender)
         noneGender = findViewById(R.id.chp_noneGender)
+        image = findViewById(R.id.img_userImage)
         name = findViewById(R.id.txt_name)
         age = findViewById(R.id.txt_age)
         traning = findViewById(R.id.sbr_trainingf)
@@ -58,7 +64,10 @@ class SingIn : AppCompatActivity() {
                 maleGender.setTextColor(Color.BLACK)
                 gender = ""
             }
+
         }
+
+
 
         //Evento cuando el elemento "chip - Femenino" es precionado
         femaleGender.setOnClickListener {
@@ -129,15 +138,16 @@ class SingIn : AppCompatActivity() {
             }
             else{
                 try {
-                    val Age = age.text.toString()
+                    val Age = age.text.toString().toInt()
 
-                    if (Age.toInt() in 11..79){
-                        //Envio de datos recuperados al siguiente formulario
+                    if (Age in 11..79){
+                        //Envio de datos recuperados a SheredPreferences
                         val intent = Intent(this, SecondForm::class.java)
-                        intent.putExtra("name", name.text.toString())
-                        intent.putExtra("age", Age)
-                        intent.putExtra("training", traningf.toString())
-                        intent.putExtra("gender", gender)
+                        val resources = ResourceMethods()
+                        resources.saveToSharedPreferences(this, "name", name.text.toString())
+                        resources.saveToSharedPreferences(this, "age", Age)
+                        resources.saveToSharedPreferences(this, "training", traningf.toString())
+                        resources.saveToSharedPreferences(this, "gender", gender)
                         startActivity(intent)
                     }
                     else{
@@ -170,5 +180,37 @@ class SingIn : AppCompatActivity() {
         noneGender.setTextColor(Color.BLACK)
         femaleGender.setTextColor(Color.BLACK)
     }
+
+    //Metodo para agregar una imagen de usuario
+    fun addIMage(view: View) {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*" // Solo imágenes
+        startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
+
+    }
+
+
+    //Metodo para que el usuario escoja una imagen de su galeria
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
+            selectedImageUri = data?.data
+            if (selectedImageUri != null) {
+                val inputStream = contentResolver.openInputStream(selectedImageUri!!)
+                val file = File(this.filesDir, "userImage.jpg")
+                val outputStream = file.outputStream()
+                inputStream?.copyTo(outputStream)
+                inputStream?.close()
+                outputStream.close()
+
+                // Mostrar la imagen en el ImageView
+                image.setImageURI(selectedImageUri)
+            } else {
+                Toast.makeText(this, "No se seleccionó ninguna imagen", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 
 }

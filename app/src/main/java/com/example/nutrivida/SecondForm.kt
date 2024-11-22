@@ -4,22 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 
 class SecondForm : AppCompatActivity() {
     private lateinit var heightamount: TextView
     private lateinit var height: SeekBar
     private lateinit var weightamount: TextView
     private lateinit var weight: SeekBar
-    private lateinit var imgdim:ImageView
+    private lateinit var imgdim: ImageView
     private lateinit var goal: Spinner
 
     private var amountH: Float = 170f
@@ -36,6 +33,7 @@ class SecondForm : AppCompatActivity() {
         imgdim = findViewById(R.id.img_dimensions)
         goal = findViewById(R.id.spn_goal)
 
+        //Asignacion de valores a las lista de metas
         val items =  resources.getStringArray(R.array.goals)
 
         val adapter = ArrayAdapter(this, R.layout.spinner_item, items)
@@ -78,17 +76,14 @@ class SecondForm : AppCompatActivity() {
 
     //Metodo de inicio del "Login" en modo de Registrar nuevo usuario
     fun finish(view: View?){
-        val bundle = intent.extras
+        val resources = ResourceMethods()
+        resources.saveToSharedPreferences(this, "height", amountH)
+        resources.saveToSharedPreferences(this, "weight", amountW)
+        resources.saveToSharedPreferences(this, "goal", goal.selectedItem.toString())
+
         val intent = Intent(this, Login::class.java)
         //Envio de todos los datos recuperados para ser almacenados
         intent.putExtra("flag", "SingIn") //Flag que nos ayuda a determinar si el usuario es nuevo
-        intent.putExtra("height",amountH.toString())
-        intent.putExtra("weight",amountW.toString())
-        intent.putExtra("goal",goal.selectedItem.toString())
-        intent.putExtra("name", bundle?.getString("name"))
-        intent.putExtra("age", bundle?.getString("age"))
-        intent.putExtra("training", bundle?.getString("training"))
-        intent.putExtra("gender", bundle?.getString("gender"))
         startActivity(intent)
     }
 }

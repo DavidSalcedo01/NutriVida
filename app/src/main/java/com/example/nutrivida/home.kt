@@ -1,8 +1,6 @@
 package com.example.nutrivida
 
 import android.app.Dialog
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
@@ -20,7 +19,6 @@ class home : Fragment() {
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private var param1: String? = null
     private var param2: String? = null
-    private var pro: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +32,8 @@ class home : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val sharedPref: SharedPreferences = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
-        val username = sharedPref.getString("name", "No Name")
+        val resources = ResourceMethods()
+        val username = resources.getFromSharedPreferences(requireContext(), "name", "Usuario")
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val progressBarA: ProgressBar = view.findViewById(R.id.progressBar_a)
         val progressBarS: ProgressBar = view.findViewById(R.id.progressBar_s)
@@ -44,10 +42,11 @@ class home : Fragment() {
         val progressBarP: ProgressBar = view.findViewById(R.id.progressBar_principal)
         val progreso: TextView = view.findViewById(R.id.text_pro)
         val addRegis: Button = view.findViewById(R.id.btn_progreso)
-
+        val image: ImageView = view.findViewById(R.id.img_userImage)
         val nombre: TextView = view.findViewById(R.id.text_UserName)
 
         nombre.text = "Hola, $username"
+        image.setImageBitmap(resources.loadUserImage(requireContext()))
 
         addRegis.setOnClickListener {
             val regisDialog = Dialog(requireContext())

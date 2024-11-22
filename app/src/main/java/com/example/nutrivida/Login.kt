@@ -11,9 +11,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import java.lang.Exception
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class Login : AppCompatActivity() {
     private lateinit var email: EditText
@@ -79,21 +80,10 @@ class Login : AppCompatActivity() {
             if(email.text.isNotEmpty() || password.text.isNotEmpty()){
                 if(emailValidation(email.text.toString())){
                     if(passwordValidation(password.text.toString())){
-                        val bundle = intent.extras
                         //Insercion de los datos del usuario al SheredPreferences
-                        var pref = getSharedPreferences("user_data", Context.MODE_PRIVATE)
-                        var editor = pref.edit()
-                        editor.putString("email", email.text.toString())
-                        editor.putString("password", password.text.toString())
-                        editor.putString("name", bundle?.getString("name").toString())
-                        editor.putString("gender", bundle?.getString("gender").toString())
-                        editor.putInt("age", bundle?.getString("age")?.toIntOrNull() ?: 0)
-                        editor.putInt("training", bundle?.getString("training")?.toIntOrNull() ?: 11)
-                        editor.putFloat("height", bundle?.getString("height")?.toFloatOrNull() ?: 40.0f)
-                        editor.putFloat("weight", bundle?.getString("weight")?.toFloatOrNull() ?: 20.0f)
-                        editor.putString("goal", bundle?.getString("goal").toString())
-                        editor.commit() //Guardado de los datos
-
+                        val resources = ResourceMethods()
+                        resources.saveToSharedPreferences(this, "email",  email.text.toString())
+                        resources.saveToSharedPreferences(this, "password",  password.text.toString())
 
                         //INICIO DEL TAB NAVIGATION
                         val intent = Intent(this, Menu::class.java)
@@ -142,10 +132,34 @@ class Login : AppCompatActivity() {
         val emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
         return email.matches(emailRegex.toRegex())
     }
-
     private fun passwordValidation(password: String): Boolean {
         val passwordPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!?])(?=\\S+$).{8,}$"
         val passwordMatcher = Regex(passwordPattern)
         return passwordMatcher.matches(password)
+    }
+
+    //Metodo de validacion de login por Google         NO IMPLEMENTADO AUN!
+    fun validateLogin(email: String, password: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+        val db: FirebaseFirestore = Firebase.firestore
+        db.collection("Users")
+            .whereEqualTo("Email", email)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (!documents.isEmpty) {
+                    val user = documents.documents[0]
+                    val storedPassword = user.getString("Password")
+                    if (storedPassword == password) {
+                        onSuccess() }
+                    else {
+                        onFailure("Contraseña incorrecta")
+                    }
+                }
+                else {
+                    onFailure("Usuario no encontrado")
+                }
+            }
+            .addOnFailureListener { exception ->
+                onFailure("Error al validar el usuario: ${exception.message}")
+            }
     }
 }
