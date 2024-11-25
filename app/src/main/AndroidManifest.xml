@@ -15,6 +15,12 @@
         android:theme="@style/Theme.NutriVida"
         tools:targetApi="31">
         <activity
+            android:name=".ThirdForm"
+            android:exported="false" />
+        <activity
+            android:name=".testMulti"
+            android:exported="false" />
+        <activity
             android:name=".Video"
             android:exported="false" />
         <activity
@@ -24,7 +30,7 @@
             android:name=".SecondForm"
             android:exported="false" />
         <activity
-            android:name=".SingIn"
+            android:name=".SignIn"
             android:exported="false" />
         <activity
             android:name=".Login"

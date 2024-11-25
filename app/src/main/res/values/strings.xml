@@ -36,7 +36,7 @@
     <!-- Strings activity_secondform -->
 
 
-    <!-- OPCIONES SPINNER -->
+    <!-- OPCIONES METAS -->
     <string-array name="goals">
         <item>Pérdida de peso</item>
         <item>Aumento de masa muscular</item>
@@ -48,6 +48,87 @@
         <item>Mejorar la piel</item>
         <item>Controlar la presión arterial</item>
         <item>Mejorar el bienestar mental</item>
+    </string-array>
+
+
+    <!-- OPCIONES CONDICIONES -->
+    <string-array name="conditions">
+        <!-- condiciones alimenticias -->
+        <item>Intolerancia a la lactosa</item>
+        <item>Alergia al gluten</item>
+        <item>Alergia al marisco</item>
+        <item>Enfermedad celiaca</item>
+        <item>Alergia al huevo</item>
+        <item>Alergia al mani</item>
+        <item>INtolerancia a la fructosa</item>
+        <item>Sindrome de intestino irritable</item>
+        <item>Alergia a la soya</item>
+        <item>Diabetes tipo 1 y 2</item>
+        <item>Hypertension</item>
+        <item>Gota</item>
+        <item>Alergia al sesamo</item>
+        <item>Alergia a las legumbres</item>
+        <item>Enfermedad de Crohn</item>
+        <item>Alergia a los sulfitos</item>
+        <item>Anemia por deficiencia de hierro</item>
+        <item>Hiperlipidemia</item>
+
+        <!-- condiciones fisicas -->
+        <item>Afasia</item>
+        <item>Ataxia</item>
+        <item>Abasia</item>
+        <item>Distrofia muscular</item>
+        <item>Hipotiroidismo</item>
+        <item>Hipercolesterolemia</item>
+        <item>Hipertermia</item>
+        <item>Insuficiencia cardíaca</item>
+        <item>Lupus</item>
+        <item>Miastenia</item>
+        <item>Neuropatía periférica</item>
+        <item>Obesidad</item>
+        <item>Osteoporosis</item>
+        <item>Parkinson</item>
+        <item>túnel carpiano</item>
+        <item>fatiga crónica</item>
+        <item>Síndrome de Tourette</item>
+        <item>Síndrome de Wolff-Parkinson-White</item>
+    </string-array>
+
+
+    <!-- OPCIONES SUPLEMENTOS -->
+    <string-array name="supplements">
+        <item>Vitamina A</item>
+        <item>Vitamina B1 (Tiamina)</item>
+        <item>Vitamina B2 (Riboflavina)</item>
+        <item>Vitamina B3 (Niacina)</item>
+        <item>Vitamina B6 (Piridoxina)</item>
+        <item>Vitamina B12</item>
+        <item>Vitamina C</item>
+        <item>Vitamina D</item>
+        <item>Vitamina E</item>
+        <item>Calcio</item>
+        <item>Hierro</item>
+        <item>Magnesio</item>
+        <item>Zinc</item>
+        <item>Omega-3 (Ácidos grasos)</item>
+        <item>Coenzima Q10 (CoQ10)</item>
+        <item>Fósforo</item>
+        <item>Potasio</item>
+        <item>Sodio</item>
+        <item>Cloro</item>
+        <item>Azufre</item>
+        <item>Manganeso</item>
+        <item>Cromo</item>
+        <item>Molibdeno</item>
+        <item>Cobalto</item>
+        <item>Selenio</item>
+        <item>Silicio</item>
+        <item>Boro</item>
+        <item>Vanadio</item>
+        <item>Níquel</item>
+        <item>Litio</item>
+        <item>Proteina</item>
+        <item>Creatina</item>
     </string-array>
 
 

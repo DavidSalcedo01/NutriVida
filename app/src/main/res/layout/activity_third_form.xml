@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".ThirdForm">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="5dp"
+            android:contentDescription="back"
+            android:onClick="back"
+            android:padding="10dp"
+            app:srcCompat="@drawable/arrow_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="66dp"
+            android:text="@string/text_createAccount"
+            style="@style/PoppinsText"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="23dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lb_conditions"
+            style="@style/CustomTextView"
+            android:text="Tienes alguna condicion?" />
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/mult_conditions"
+            style="@style/CustomEditText"
+            android:hint="Alergias, discapacidad o enfermedad"/>
+
+        <TextView
+            android:id="@+id/lb_measures"
+            style="@style/CustomTextView"
+            android:text="Circunferencias corporales (cm)"/>
+
+        <com.google.android.flexbox.FlexboxLayout
+            xmlns:flexbox="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            flexbox:flexWrap="wrap"
+            flexbox:alignItems="flex_start"
+            flexbox:justifyContent="flex_start"
+            android:layout_marginBottom="15dp">
+
+            <EditText
+                android:id="@+id/txt_waist"
+                android:layout_width="100dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:inputType="number"
+                style="@style/CustomEditText"
+                android:hint="Cintura"/>
+
+            <EditText
+                android:id="@+id/txt_hip"
+                android:layout_width="100dp"
+                style="@style/CustomEditText"
+                android:inputType="number"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Cadera" />
+
+            <EditText
+                android:id="@+id/txt_arm"
+                android:layout_width="100dp"
+                style="@style/CustomEditText"
+                android:inputType="number"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Brazo" />
+
+            <EditText
+                android:id="@+id/txt_leg"
+                android:layout_width="100dp"
+                style="@style/CustomEditText"
+                android:inputType="number"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Muslo" />
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <TextView
+            android:id="@+id/lb_preferences"
+            style="@style/CustomTextView"
+            android:text="Preferencias alimenticias"/>
+
+        <com.google.android.flexbox.FlexboxLayout
+            xmlns:flexbox="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            flexbox:flexWrap="wrap"
+            android:layout_marginBottom="15dp"
+            flexbox:alignItems="flex_start"
+            flexbox:justifyContent="flex_start">
+
+            <CheckBox
+                android:id="@+id/chb_vegan"
+                style="@style/CustomCheckBox"
+                android:text="Vegano"/>
+
+            <CheckBox
+                android:id="@+id/chb_vegetarian"
+                style="@style/CustomCheckBox"
+                android:text="Vegetariano"/>
+
+            <CheckBox
+                android:id="@+id/chb_carnivorous"
+                style="@style/CustomCheckBox"
+                android:text="Carnivora"/>
+
+            <CheckBox
+                android:id="@+id/chb_pescatarian"
+                style="@style/CustomCheckBox"
+                android:text="Pescetariana"/>
+
+            <CheckBox
+                android:id="@+id/chb_flexitarian"
+                style="@style/CustomCheckBox"
+                android:text="Flexitariana"/>
+
+            <CheckBox
+                android:id="@+id/chb_gluten_free"
+                style="@style/CustomCheckBox"
+                android:text="Sin gluten"/>
+
+            <CheckBox
+                android:id="@+id/chb_keto"
+                style="@style/CustomCheckBox"
+                android:text="Keto"/>
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <TextView
+            android:id="@+id/lb_supplements"
+            style="@style/CustomTextView"
+            android:text="Tomas algun suplemento?" />
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/mult_supplements"
+            style="@style/CustomEditText"
+            android:hint="Vitaminas, minerales o suplementos"/>
+
+        <Button
+            android:id="@+id/btn_finish"
+            style="@style/CustomButton"
+            android:onClick="finish"
+            android:text="Terminar" />
+    </LinearLayout>
+</LinearLayout>

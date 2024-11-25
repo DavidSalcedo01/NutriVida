@@ -10,7 +10,7 @@
     android:background="@color/white"
     android:layout_gravity="center"
     android:gravity="center"
-    tools:context=".SingIn">
+    tools:context=".SignIn">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -138,58 +138,29 @@
 
         <TextView
             android:id="@+id/lb_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            style="@style/PoppinsText"
-            android:textSize="18sp"
+            style="@style/CustomTextView"
             android:text="@string/lb_name"/>
 
         <EditText
             android:id="@+id/txt_name"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            style="@style/CustomEditText"
             android:inputType="text"
-            android:background="@drawable/edittext_background"
-            android:textColor="@color/black"
-            android:textColorHint="#808080"
-            style="@style/PoppinsText"
-            android:padding="10dp"
             android:hint="@string/txt_name" />
 
         <TextView
             android:id="@+id/lb_age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            style="@style/PoppinsText"
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
-            android:textSize="18sp"
+            style="@style/CustomTextView"
             android:text="@string/lb_age"/>
 
         <EditText
             android:id="@+id/txt_age"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            style="@style/CustomEditText"
             android:inputType="number"
-            android:background="@drawable/edittext_background"
-            android:textColor="@color/black"
-            android:textColorHint="#808080"
-            style="@style/PoppinsText"
-            android:padding="10dp"
             android:hint="@string/txt_age"/>
 
         <TextView
             android:id="@+id/lb_weight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            style="@style/PoppinsText"
-            android:textColor="@color/black"
-            android:layout_marginTop="20dp"
+            style="@style/CustomTextView"
             android:text="@string/lb_weight"/>
 
 
@@ -210,20 +181,10 @@
             style="@style/PoppinsText"
             android:text="@string/lb_trainingf"/>
 
-
         <Button
             android:id="@+id/btn_next"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="15sp"
-            android:layout_marginTop="25dp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/primary"
-            style="@style/PoppinsText"
+            style="@style/CustomButton"
             android:text="@string/btn_next"
             android:onClick="nextForm"/>
     </LinearLayout>
-
-
 </LinearLayout>

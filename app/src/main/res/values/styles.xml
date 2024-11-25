@@ -4,10 +4,12 @@
         <item name="android:fontFamily">@font/font_family</item>
     </style>
 
+    <!-- FontFamily de la aplicacion-->
     <style name="PoppinsText">
         <item name="android:fontFamily">@font/font_family</item>
     </style>
 
+    <!-- Estilo cuadro de dialogo del platillo -->
     <style name="TransparentDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
@@ -16,8 +18,74 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
+    <!-- Imagen redondeada del usuario -->
     <style name="roundedImageUser">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
-</resources>
+
+    <!-- Estilo TextView -->
+    <style name="CustomTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/font_family</item>
+    </style>
+
+    <!-- Estilo EditText -->
+    <style name="CustomEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/edittext_background</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">#808080</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Estilo SeekBar -->
+    <style name="CustomSeekBar">
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+        <item name="android:progressDrawable">@drawable/seekbar_progress</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:splitTrack">false</item>
+        <item name="android:fontFamily">@font/font_family</item>
+    </style>
+
+    <!-- Estilo CheckBox -->
+    <style name="CustomCheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:buttonTint">#36622B</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/font_family</item>
+    </style>
+
+    <!-- Estilo Spinner -->
+    <style name="CustomSpinner" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:background">@drawable/edittext_background</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+    <!-- Estilo Button -->
+    <style name="CustomButton" parent="Widget.AppCompat.ButtonBar.AlertDialog">
+        <item name="android:backgroundTint">#36622B</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+ </resources>

@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.chip.Chip
 import java.io.File
 
-class SingIn : AppCompatActivity() {
+class SignIn : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST_CODE = 1
     private lateinit var maleGender: Chip
     private lateinit var femaleGender: Chip
@@ -66,8 +66,6 @@ class SingIn : AppCompatActivity() {
             }
 
         }
-
-
 
         //Evento cuando el elemento "chip - Femenino" es precionado
         femaleGender.setOnClickListener {
@@ -128,7 +126,7 @@ class SingIn : AppCompatActivity() {
 
     //Metodo de validacion de datos ingresados y inicio del "SecondForm"
      fun nextForm(view: View?){
-        if(!gender.isEmpty()){
+        if(gender.isNotEmpty()){
             if (name.getText().toString().isEmpty() || age.getText().toString().isEmpty()){
                 Toast.makeText(this,"Rellene todos los campos", Toast.LENGTH_SHORT).show();
                 name.setHintTextColor(Color.RED)
@@ -139,7 +137,6 @@ class SingIn : AppCompatActivity() {
             else{
                 try {
                     val Age = age.text.toString().toInt()
-
                     if (Age in 11..79){
                         //Envio de datos recuperados a SheredPreferences
                         val intent = Intent(this, SecondForm::class.java)

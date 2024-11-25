@@ -48,6 +48,7 @@ class home : Fragment() {
         nombre.text = "Hola, $username"
         image.setImageBitmap(resources.loadUserImage(requireContext()))
 
+
         addRegis.setOnClickListener {
             val regisDialog = Dialog(requireContext())
             regisDialog.setContentView(R.layout.add_progreso)

@@ -39,11 +39,10 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <TextView
@@ -138,15 +137,11 @@
         android:layout_marginRight="23dp"
         android:orientation="vertical">
 
+
         <TextView
-            android:id="@+id/lb_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cual es tu meta"
-            android:textColor="@color/black"
-            style="@style/PoppinsText"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:id="@+id/lb_goal"
+            style="@style/CustomTextView"
+            android:text="Cual es tu meta"/>
 
         <Spinner
             android:id="@+id/spn_goal"
@@ -155,20 +150,25 @@
             android:layout_marginTop="5dp"
             android:background="@drawable/edittext_background"
             android:spinnerMode="dropdown"
+            android:layout_marginBottom="20dp"
             style="@style/PoppinsText"
             android:padding="12dp" />
 
+        <TextView
+            android:id="@+id/lb_sleep"
+            style="@style/CustomTextView"
+            android:text="Calidad del sueño"/>
+
+        <EditText
+            android:id="@+id/txt_sleep"
+            style="@style/CustomEditText"
+            android:inputType="number"
+            android:hint="Cuntas horas duermes por dia" />
+
         <Button
-            android:id="@+id/btn_finish"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="18dp"
-            android:backgroundTint="@color/primary"
-            android:onClick="finish"
-            android:text="Terminar"
-            style="@style/PoppinsText"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:id="@+id/btn_next"
+            style="@style/CustomButton"
+            android:onClick="nextForm_two"
+            android:text="Siguiente" />
     </LinearLayout>
 </LinearLayout>

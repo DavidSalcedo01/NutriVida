@@ -41,11 +41,11 @@ android {
 dependencies {
     implementation ("androidx.fragment:fragment-ktx:1.5.2")
     implementation(libs.androidx.core.ktx)
-    //implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.appcompat.v130)
+    implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
     implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-appcheck-playintegrity")

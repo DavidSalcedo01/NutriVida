@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun SingIn(view: View?){
-        val intent = Intent(this, SingIn::class.java)
+        val intent = Intent(this, SignIn::class.java)
         startActivity(intent)
     }
 }
