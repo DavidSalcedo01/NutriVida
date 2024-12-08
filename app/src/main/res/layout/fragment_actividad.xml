@@ -109,6 +109,17 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btn_alarma"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="15dp"
+                android:backgroundTint="@color/primary"
+                android:drawableTint="#8BC34A"
+                android:text="Programar hora de ejercicios"
+                app:icon="@drawable/baseline_access_alarm_24" />
+
             <LinearLayout
                 android:layout_width="370dp"
                 android:layout_height="80dp"
