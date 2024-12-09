@@ -33,7 +33,7 @@ class Login : AppCompatActivity() {
         email = findViewById(R.id.txt_email)
         password = findViewById(R.id.txt_password)
         login = findViewById(R.id.btn_login)
-        //banner = findViewById(R.id.lb_banner)
+        banner = findViewById(R.id.lb_banner)
         passwordWarning = findViewById(R.id.lb_passwordWarning)
 
 
