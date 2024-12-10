@@ -21,6 +21,7 @@
 
         <activity
             android:name=".Alarma"
+            android:theme="@style/CustomActionBarTheme"
             android:exported="true" />
         <activity
             android:name=".Video"

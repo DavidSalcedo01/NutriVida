@@ -174,9 +174,7 @@ class actividad : Fragment() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_POST_NOTIFICATIONS) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                // Permiso concedido
             } else {
-                // Permiso denegado
             }
         }
     }

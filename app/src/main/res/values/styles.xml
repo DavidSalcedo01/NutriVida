@@ -15,4 +15,11 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
     </style>
+
+
+    <style name="CustomActionBarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/ligth_primary</item>
+        <item name="colorPrimaryDark">@color/green_progress</item>
+        <item name="colorAccent">@color/text_gray</item>
+    </style>
 </resources>

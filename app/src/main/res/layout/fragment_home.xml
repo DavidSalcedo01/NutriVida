@@ -60,22 +60,23 @@
                 android:layout_width="373dp"
                 android:layout_height="187dp"
                 android:layout_margin="20dp"
-                android:background="@drawable/panel"
+                android:background="@drawable/green_container"
                 android:orientation="horizontal"
                 android:scrollbarFadeDuration="90">
 
                 <TextView
                     android:id="@+id/text_plan"
+                    style="@style/PoppinsText"
                     android:layout_width="102dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:layout_margin="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
                     android:layout_weight="1"
                     android:text="Mi Plan Para Hoy"
                     android:textColor="@color/white"
                     android:textSize="24sp"
-                    android:textStyle="normal"
-                    style="@style/PoppinsText"/>
+                    android:textStyle="normal" />
 
                 <FrameLayout
                     android:id="@+id/flp"
@@ -102,23 +103,23 @@
 
                         <TextView
                             android:id="@+id/text_pro"
+                            style="@style/PoppinsText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="0"
                             android:textColor="#FFC107"
                             android:textSize="20sp"
-                            android:textStyle="bold"
-                            style="@style/PoppinsText"/>
+                            android:textStyle="bold" />
 
                         <TextView
+                            style="@style/PoppinsText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="PROGRESO"
                             android:textColor="#FFC107"
-                            android:textSize="15sp"
-                            style="@style/PoppinsText"/>
+                            android:textSize="15sp" />
 
                     </LinearLayout>
 
@@ -343,28 +344,28 @@
                 android:layout_height="90dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/panel"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/text_sleep"
+                    style="@style/PoppinsText"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="Ciclo de sueño"
                     android:textColor="@color/white"
-                    android:textStyle="bold"
-                    style="@style/PoppinsText"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/text_h"
+                    style="@style/PoppinsText"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Horas: 0"
-                    android:textColor="@color/white"
-                    style="@style/PoppinsText"/>
+                    android:textColor="@color/white" />
 
                 <ProgressBar
                     android:id="@+id/progressBar_s"
@@ -375,6 +376,70 @@
                     android:max="8"
                     android:progressBackgroundTint="#CDDC39"
                     android:progressTint="#FFEB3B" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="373dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/edittext_background"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/fls"
+                    android:layout_width="182dp"
+                    android:layout_height="135dp"
+                    android:layout_gravity="center_vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar_pasos"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/gray_progressbar_background"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/gold_progressbar_background"
+                        android:rotation="90" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/runnin" />
+
+                        <TextView
+                            android:id="@+id/txtPasos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="373dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Pasos de Hoy"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="italic" />
 
             </LinearLayout>
 

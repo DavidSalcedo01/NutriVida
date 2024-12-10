@@ -1,18 +1,15 @@
 package com.example.nutrivida
 
 import android.app.AlarmManager
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.util.Calendar
 
@@ -31,7 +28,6 @@ class Alarma : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarma)
 
-        // Inicializando los Spinners y RadioGroup
         spinnerHour = findViewById(R.id.spinnerHour)
         spinnerMinute = findViewById(R.id.spinnerMinute)
         spinnerAmPm = findViewById(R.id.spinnerAmPm)
@@ -41,17 +37,38 @@ class Alarma : AppCompatActivity() {
         btnSetAlarm = findViewById(R.id.btnSetAlarm)
         btnReturn = findViewById(R.id.btnReturn)
 
-        // Configurar Spinners (omitir configuración para brevedad)
+        val hours = (1..12).toList().map { it.toString()}
+        val hourAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hours)
+        hourAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerHour.adapter = hourAdapter
+
+        val minutes = (0..59).toList().map { String.format("%02d" , it) }
+        val minuteAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, minutes)
+        minuteAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerMinute.adapter = minuteAdapter
+
+        val amPm = listOf("AM", "PM")
+        val amPmAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, amPm)
+        amPmAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerAmPm.adapter = amPmAdapter
+
+        val duration = listOf("1 minuto", "5 minutos", "10 minutos")
+        val durationAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, duration)
+        durationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerDuration.adapter = durationAdapter
+
+        val repit = listOf("5 minutos", "10 minutos", "30 minutos", "60 minutos")
+        val repitAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, repit)
+        repitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerRepit.adapter = repitAdapter
 
         btnSetAlarm.setOnClickListener {
-            // Obtener la hora, minutos y AM/PM seleccionados
             val selectedHour = spinnerHour.selectedItem.toString().toInt()
             val selectedMinute = spinnerMinute.selectedItem.toString().toInt()
             val selectedAmPm = spinnerAmPm.selectedItem.toString()
             val duration = spinnerDuration.selectedItem.toString().split(" ")[0].toInt()
             val repit = spinnerRepit.selectedItem.toString().split(" ")[0].toInt()
 
-            // Configurar la alarma
             setAlarm(selectedHour, selectedMinute, selectedAmPm, duration, repit)
         }
 
@@ -76,19 +93,7 @@ class Alarma : AppCompatActivity() {
         }
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
-    }
 
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Exercise Channel"
-            val descriptionText = "Channel for exercise notifications"
-            val importance = NotificationManager.IMPORTANCE_HIGH
-            val channel = NotificationChannel("exercise_channel", name, importance).apply {
-                description = descriptionText
-            }
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
+        Toast.makeText(this, "Alarma establecida para las $hour:$minute $amPm con una duración de $duration minutos y repeticiones cada $repit minutos", Toast.LENGTH_LONG).show()
     }
 }

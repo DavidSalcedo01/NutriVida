@@ -3,7 +3,13 @@ package com.example.nutrivida
 import android.app.Dialog
 import android.content.Context
 import android.content.SharedPreferences
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +18,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 
@@ -20,6 +27,11 @@ class home : Fragment() {
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var sensorManager: SensorManager
+    private var stepSensor: Sensor? = null
+    private var totalSteps = 0f
+    private var previousTotalSteps = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +53,23 @@ class home : Fragment() {
         val progressBarC: ProgressBar = view.findViewById(R.id.progressBar_c)
         val progressBarV: ProgressBar = view.findViewById(R.id.progressBar_v)
         val progressBarP: ProgressBar = view.findViewById(R.id.progressBar_principal)
+        val progressBarPasos: ProgressBar = view.findViewById(R.id.progressBar_pasos)
         val progreso: TextView = view.findViewById(R.id.text_pro)
         val addRegis: Button = view.findViewById(R.id.btn_progreso)
 
         val nombre: TextView = view.findViewById(R.id.text_UserName)
+        val pasos: TextView = view.findViewById(R.id.text_pasos)
 
         nombre.text = "Hola, $username"
+
+        sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
+
+        if (stepSensor != null) {
+            sensorManager.registerListener(stepListener, stepSensor, SensorManager.SENSOR_DELAY_UI)
+        } else {
+            Toast.makeText(context, "Sensor de pasos no disponible", Toast.LENGTH_SHORT).show()
+        }
 
         addRegis.setOnClickListener {
             val regisDialog = Dialog(requireContext())
@@ -66,7 +89,6 @@ class home : Fragment() {
                 val aguaInt = agua.text.toString().toInt()
                 val suenoInt = sue.text.toString().toInt()
                 val calInt = cal.text.toString().toInt()
-
 
                 val calR = (calInt / 2000.0) * 100
 
@@ -118,5 +140,40 @@ class home : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private val stepListener = object : SensorEventListener {
+        override fun onSensorChanged(event: SensorEvent?) {
+            if (event != null) {
+                totalSteps = event.values[0]
+                val currentSteps = totalSteps - previousTotalSteps
+                updateStepCount(currentSteps.toInt())
+            }
+        }
+
+        override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
+    }
+
+    private fun updateStepCount(currentSteps: Int) {
+        val pasos: TextView = view?.findViewById(R.id.text_pasos) ?: return
+        val progressBarPasos: ProgressBar = view?.findViewById(R.id.progressBar_pasos) ?: return
+
+        pasos.text = "Pasos: $currentSteps"
+        progressBarPasos.progress = (currentSteps * 100 / 8000)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val sharedPref = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putFloat("previousTotalSteps", previousTotalSteps)
+            apply()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sharedPref = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        previousTotalSteps = sharedPref.getFloat("previousTotalSteps", 0f)
     }
 }
