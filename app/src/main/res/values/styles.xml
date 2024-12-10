@@ -4,18 +4,24 @@
         <item name="android:fontFamily">@font/font_family</item>
     </style>
 
-    <!-- FontFamily de la aplicacion-->
     <style name="PoppinsText">
         <item name="android:fontFamily">@font/font_family</item>
     </style>
 
-    <!-- Estilo cuadro de dialogo del platillo -->
     <style name="TransparentDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
+    </style>
+
+
+
+    <style name="CustomActionBarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/ligth_primary</item>
+        <item name="colorPrimaryDark">@color/green_progress</item>
+        <item name="colorAccent">@color/text_gray</item>
     </style>
 
     <!-- Imagen redondeada del usuario -->
@@ -88,4 +94,4 @@
         <item name="android:textSize">15sp</item>
         <item name="android:textStyle">bold</item>
     </style>
- </resources>
+</resources>
