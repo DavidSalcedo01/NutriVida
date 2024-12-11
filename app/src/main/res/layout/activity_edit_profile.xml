@@ -5,16 +5,6 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <!-- Name Field -->
-    <EditText
-        android:id="@+id/edit_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter your name"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Email Field -->
     <EditText
@@ -23,10 +13,9 @@
         android:layout_height="wrap_content"
         android:hint="Enter your age"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/edit_name"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Phone Number Field -->
     <EditText
@@ -50,6 +39,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <EditText
+        android:id="@+id/edit_height"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter your height"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/edit_gender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_weight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter your weight"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/edit_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
     <!-- Save Button -->
     <Button
@@ -58,7 +67,7 @@
         android:layout_height="wrap_content"
         android:text="Save Profile"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/edit_gender"
+        app:layout_constraintTop_toBottomOf="@id/edit_weight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

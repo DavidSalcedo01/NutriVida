@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.nfc.FormatException
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -15,6 +16,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.chip.Chip
+import com.google.firebase.firestore.FirebaseFirestore
 import java.io.File
 
 class SignIn : AppCompatActivity() {
@@ -32,6 +34,7 @@ class SignIn : AppCompatActivity() {
     private var traningf: Int = 0
     private var gender: String = ""
     var selectedImageUri: Uri? = null
+    val db = FirebaseFirestore.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -138,6 +141,21 @@ class SignIn : AppCompatActivity() {
                 try {
                     val Age = age.text.toString().toInt()
                     if (Age in 11..79){
+                        val userData = hashMapOf(
+                            "name" to name.text.toString(),
+                            "age" to Age,
+                            "training" to traningf.toString(),
+                            "gender" to gender
+                        )
+
+                        db.collection("users").document(name.text.toString())
+                            .set(userData)
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("Firestore", "Added Succesfull")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("Firestore", "Error adding document", e)
+                            }
                         //Envio de datos recuperados a SheredPreferences
                         val intent = Intent(this, SecondForm::class.java)
                         val resources = ResourceMethods()

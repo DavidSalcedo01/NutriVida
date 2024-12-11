@@ -9,14 +9,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class EditProfileActivity : AppCompatActivity() {
 
-    private lateinit var sharedPreferencesHelper: SharedPreferencesHelper
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
-        sharedPreferencesHelper = SharedPreferencesHelper(this)
 
         // Load existing data into input fields
         loadProfileData()
@@ -29,29 +27,37 @@ class EditProfileActivity : AppCompatActivity() {
 
     private fun loadProfileData() {
         // Load data from SharedPreferences
-        findViewById<EditText>(R.id.edit_name).setText(sharedPreferencesHelper.getString("name", ""))
+        //findViewById<EditText>(R.id.edit_name).setText(sharedPreferencesHelper.getString("name", ""))
     }
 
     private fun saveProfileData() {
         val resources = ResourceMethods()
+        val username = resources.getFromSharedPreferences(this, "name", "Usuario")
         // Retrieve updated data from input fields
 
-        val name = findViewById<EditText>(R.id.edit_name).text.toString()
+        //val name = findViewById<EditText>(R.id.edit_name).text.toString()
         val age = findViewById<EditText>(R.id.edit_age).text.toString()
         val training = findViewById<EditText>(R.id.edit_training).text.toString()
         val gender = findViewById<EditText>(R.id.edit_gender).text.toString()
+        val height = findViewById<EditText>(R.id.edit_height).text.toString()
+        val weight = findViewById<EditText>(R.id.edit_weight).text.toString()
 
-        // Save data to SharedPreferences
-        resources.saveToSharedPreferences(this, "name", name)
+        //Save data to SharedPreferences
+        //resources.saveToSharedPreferences(this, "name", name)
+        //resources.saveToSharedPreferences(this, "age", age)
+        //resources.saveToSharedPreferences(this, "training", training)
+        //resources.saveToSharedPreferences(this, "gender", gender)
 
         // Save data to Firestore
         val userMap = hashMapOf(
-            "name" to name,
+            "name" to username,
             "age" to age,
             "training" to training,
-            "gender" to gender
+            "gender" to gender,
+            "height" to height,
+            "weight" to weight
         )
-        db.collection("users").document("users")
+        db.collection("users").document(username)
             .set(userMap)
             .addOnSuccessListener {
                 Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show()

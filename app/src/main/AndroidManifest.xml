@@ -24,6 +24,9 @@
             android:name=".Video"
             android:exported="false" />
         <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Menu"
             android:exported="true" />
         <activity
