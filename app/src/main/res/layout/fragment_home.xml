@@ -15,6 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:backgroundTint="@color/primary"
             android:orientation="vertical">
 
@@ -25,10 +27,11 @@
                 android:layout_margin="16dp"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imageView8"
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_userImage"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    app:shapeAppearanceOverlay="@style/roundedImageUser"
                     android:src="@drawable/user_image" />
 
                 <TextView
@@ -47,7 +50,7 @@
 
             <Button
                 android:id="@+id/btn_progreso"
-                android:layout_width="220dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:backgroundTint="@color/primary"
@@ -57,11 +60,11 @@
                 style="@style/PoppinsText"/>
 
             <LinearLayout
-                android:layout_width="373dp"
+                android:layout_width="match_parent"
                 android:layout_height="187dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/green_container"
+                android:background="@drawable/container_background"
                 android:orientation="horizontal"
+                android:layout_marginBottom="15dp"
                 android:scrollbarFadeDuration="90">
 
                 <TextView
@@ -127,17 +130,16 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="373dp"
+                android:layout_width="match_parent"
                 android:layout_height="187dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="178dp"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
+                    android:layout_weight="1"
                     android:background="@drawable/edittext_background"
                     android:orientation="vertical">
 
@@ -152,26 +154,22 @@
 
                         <TextView
                             android:id="@+id/text_agua"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:gravity="right"
-                            android:textColor="@color/black"
                             android:text="Agua"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             style="@style/PoppinsText"/>
 
                         <ImageView
                             android:id="@+id/imageView12"
-                            android:layout_width="83dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="28dp"
-                            android:layout_weight="1"
                             android:src="@drawable/agua" />
-
-
                     </LinearLayout>
 
-                    <FrameLayout
+                    <RelativeLayout
                         android:id="@+id/flpa"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -180,14 +178,15 @@
                         <ProgressBar
                             android:id="@+id/progressBar_v"
                             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="180dp"
+                            android:layout_height="180dp"
                             android:layout_gravity="center_vertical"
                             android:background="@drawable/gray_progressbar_background"
                             android:max="18"
                             android:indeterminate="false"
                             android:progressDrawable="@drawable/blue_progressbar_background"
-                            android:rotation="90" />
+                            android:rotation="90"
+                            android:layout_centerInParent="true"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -197,35 +196,36 @@
 
                             <TextView
                                 android:id="@+id/text_numCup"
+                                style="@style/PoppinsText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="0"
                                 android:textColor="#00BCD4"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                style="@style/PoppinsText"/>
+                                android:textStyle="bold" />
 
                             <TextView
+                                style="@style/PoppinsText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="VASOS"
                                 android:textColor="#00BCD4"
-                                android:textSize="15sp"
-                                style="@style/PoppinsText"/>
+                                android:textSize="15sp" />
 
                         </LinearLayout>
 
-                    </FrameLayout>
+                    </RelativeLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/panel"
+                    android:background="@drawable/container_background"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -252,13 +252,12 @@
 
                         <ImageView
                             android:id="@+id/imageView10"
-                            android:layout_width="35dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
                             android:src="@drawable/aguacate"/>
                     </LinearLayout>
 
-                    <FrameLayout
+                    <RelativeLayout
                         android:id="@+id/flpc"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -267,18 +266,18 @@
                         <ProgressBar
                             android:id="@+id/progressBar_c"
                             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
                             android:layout_gravity="center_vertical"
                             android:background="@drawable/gray_progressbar_background"
                             android:indeterminate="false"
                             android:progressDrawable="@drawable/green_progressbar_background"
-                            android:rotation="90" />
+                            android:rotation="90"
+                            android:layout_centerInParent="true"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_margin="5dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
@@ -304,17 +303,18 @@
 
                         </LinearLayout>
 
-                    </FrameLayout>
+                    </RelativeLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
+
             <LinearLayout
-                android:layout_width="373dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_margin="20dp"
                 android:background="@drawable/edittext_background"
+                android:layout_marginBottom="15dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -340,12 +340,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="373dp"
+                android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/panel"
+                android:background="@drawable/container_background"
+                android:layout_marginBottom="15dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -380,11 +378,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="373dp"
+                android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="50dp"
                 android:background="@drawable/edittext_background"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <FrameLayout

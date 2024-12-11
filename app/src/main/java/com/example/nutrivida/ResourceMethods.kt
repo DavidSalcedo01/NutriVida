@@ -1,10 +1,19 @@
 package com.example.nutrivida
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.os.Build
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import java.io.File
 
@@ -32,7 +41,7 @@ import java.io.File
  *   @since 25/11/24
  */
 
-class ResourceMethods {
+class ResourceMethods{
     //Metodo para poder guardar datos en SheredPreferences
     fun saveToSharedPreferences(context: Context, tag: String, value: Any) {
         try {
@@ -87,6 +96,27 @@ class ResourceMethods {
         } catch (e: Exception) {
             Toast.makeText(context, "Error loading the image", Toast.LENGTH_LONG).show()
             return null
+        }
+    }
+
+    companion object {
+        private const val CHANNEL_ID = "your_channel_id"
+        private const val CHANNEL_NAME = "Your Channel Name"
+        private const val CHANNEL_DESCRIPTION = "Your Channel Description"
+    }
+    private fun createNotificationChannel(context: Context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                CHANNEL_ID,
+                CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_DEFAULT
+            ).apply {
+                description = CHANNEL_DESCRIPTION
+            }
+
+            val notificationManager: NotificationManager =
+                context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
         }
     }
 

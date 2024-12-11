@@ -37,7 +37,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="87dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_login"
                 android:gravity="center"
@@ -60,7 +60,7 @@
                     <Spinner
                         android:id="@+id/spinnerHour"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="48dp" />
 
                 </LinearLayout>
 
@@ -80,7 +80,7 @@
                     <Spinner
                         android:id="@+id/spinnerMinute"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="48dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -100,7 +100,7 @@
                     <Spinner
                         android:id="@+id/spinnerAmPm"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="48dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -129,7 +129,7 @@
                     <Spinner
                         android:id="@+id/spnDuration"
                         android:layout_width="262dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_margin="10dp"
                         android:layout_weight="1" />
                 </LinearLayout>
@@ -152,7 +152,7 @@
                     <Spinner
                         android:id="@+id/spnRepit"
                         android:layout_width="262dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_margin="10dp"
                         android:layout_weight="1" />
                 </LinearLayout>
@@ -184,14 +184,14 @@
                     <RadioButton
                         android:id="@+id/radioMonday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:buttonTint="#8BC34A"
                         android:text="Lunes" />
 
                     <RadioButton
                         android:id="@+id/radioTuesday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:buttonTint="#8BC34A"
                         android:text="Martes"
                         android:textColorLink="#8BC34A" />
@@ -199,7 +199,7 @@
                     <RadioButton
                         android:id="@+id/radioWednesday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:buttonTint="#8BC34A"
                         android:text="Miércoles"
                         android:textColorLink="#8BC34A" />
@@ -207,7 +207,7 @@
                     <RadioButton
                         android:id="@+id/radioThursday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:buttonTint="#8BC34A"
                         android:text="Jueves"
                         android:textColorLink="#8BC34A" />
@@ -215,7 +215,7 @@
                     <RadioButton
                         android:id="@+id/radioFriday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:buttonTint="#8BC34A"
                         android:text="Viernes"
                         android:textColorLink="#8BC34A" />
@@ -223,7 +223,7 @@
                     <RadioButton
                         android:id="@+id/radioSaturday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:buttonTint="#8BC34A"
                         android:text="Sábado"
                         android:textColorLink="#8BC34A" />
@@ -231,7 +231,7 @@
                     <RadioButton
                         android:id="@+id/radioSunday"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:buttonTint="#8BC34A"
                         android:text="Domingo"
                         android:textColorLink="#8BC34A" />

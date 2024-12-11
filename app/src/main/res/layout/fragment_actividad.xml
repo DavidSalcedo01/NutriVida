@@ -13,6 +13,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -55,11 +57,9 @@
                 style="@style/PoppinsText"/>
 
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/container_background"
                 android:orientation="vertical">
 
@@ -112,19 +112,19 @@
 
             <Button
                 android:id="@+id/btn_alarma"
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_marginBottom="15dp"
                 android:backgroundTint="@color/primary"
                 android:drawableTint="#8BC34A"
                 android:text="Programar hora de ejercicios"
-                app:icon="@drawable/baseline_access_alarm_24" />
+                app:icon="@drawable/baseline_access_alarm_24"
+                style="@style/PoppinsText"/>
 
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_margin="20dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/edittext_background"
                 android:orientation="horizontal">
 
@@ -150,7 +150,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:text="Rutina para perder peso"
                         android:textSize="16sp"
@@ -170,11 +170,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:background="@drawable/edittext_background"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -199,7 +198,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Rutina para ganar musculo"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -219,12 +218,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
                 android:background="@drawable/edittext_background"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -249,7 +246,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Rutina para aumentar estatura"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -269,12 +266,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
                 android:background="@drawable/edittext_background"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -301,7 +296,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Rutina Taichi Para Principiantes"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -321,12 +316,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
                 android:background="@drawable/edittext_background"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -351,7 +344,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Rutina de Pilates para principiante"
                         android:textSize="16sp"
                         android:textColor="@color/black"
@@ -371,13 +364,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="40dp"
                 android:background="@drawable/edittext_background"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <ImageButton
@@ -402,7 +392,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Rutina de Abdomen"
                         android:textSize="16sp"
                         android:textColor="@color/black"

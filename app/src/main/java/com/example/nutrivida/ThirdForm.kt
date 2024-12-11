@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.MultiAutoCompleteTextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -78,7 +79,6 @@ class ThirdForm : AppCompatActivity() {
             getSelectedCheckBoxes()
 
             if(waisM in 40.0f..100.0f && hipM in 80.0f..120.0f && armM in 20.0f..40.0f && legM in 30.0f..60.0f){
-
                 val resources = ResourceMethods()
                 val intent = Intent(this, Login::class.java)
                 resources.saveToSharedPreferences(this, "conditions", conditions.text.toString())

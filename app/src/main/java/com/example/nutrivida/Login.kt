@@ -122,7 +122,7 @@ class Login : AppCompatActivity() {
     fun login(view: View?) {
         if (flg) {
             try {
-                val pref = getSharedPreferences("user_data", Context.MODE_PRIVATE)
+                val pref = getSharedPreferences("user_data", MODE_PRIVATE)
                 val dataEmail = pref.getString("email", "")
                 val dataPassword = pref.getString("password", "")
                 if (dataEmail == email.text.toString() && dataPassword == password.text.toString()) {
