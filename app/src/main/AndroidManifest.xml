@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
 
     <application
         android:allowBackup="true"
@@ -20,6 +22,7 @@
         <receiver android:name=".AlarmReceiver"/>
         <receiver android:name=".NotificationActionReceiver"/>
         <service android:name=".AlarmService" android:exported="false"/>
+
         <activity
             android:name=".Alarma"
             android:theme="@style/CustomActionBarTheme"

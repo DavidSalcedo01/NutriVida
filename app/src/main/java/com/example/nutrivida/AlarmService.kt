@@ -10,7 +10,6 @@ class AlarmService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        // Handle the alarm logic here
         return START_NOT_STICKY
     }
 }
