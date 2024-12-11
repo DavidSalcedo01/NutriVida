@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.Rect
 import android.nfc.FormatException
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -16,6 +17,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SecondForm : AppCompatActivity() {
     private lateinit var heightamount: TextView
@@ -28,6 +31,7 @@ class SecondForm : AppCompatActivity() {
 
     private var amountH: Float = 170f
     private var amountW: Float = 60f
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,13 +90,29 @@ class SecondForm : AppCompatActivity() {
 
     //Metodo de validacion de datos ingresados y inicio del "ThirdForm"
     fun nextForm_two(view: View?){
-        //Envio de todos los datos recuperados para ser almacenados
         try{
             if(sleep.getText().toString().isNotEmpty()){
                 val slp = sleep.text.toString().toInt()
                 if(slp in 3..23){
-                    val intent = Intent(this, ThirdForm::class.java)
                     val resources = ResourceMethods()
+                    val username = resources.getFromSharedPreferences(this, "name", "Usuario")
+                    // Data for sub-collection
+                    val userDetails = hashMapOf(
+                        "height" to amountH,
+                        "weight" to amountW,
+                        "goal" to goal.selectedItem.toString(),
+                        "sleep" to slp
+                    )
+
+                    db.collection("users").document(username).collection("details")
+                        .add(userDetails)
+                        .addOnSuccessListener { documentReference ->
+                            Log.d("Firestore", "Details added with ID: ${documentReference.id}")
+                        }
+                        .addOnFailureListener { e ->
+                            Log.w("Firestore", "Error adding details", e)
+                        }
+                    val intent = Intent(this, ThirdForm::class.java)
                     resources.saveToSharedPreferences(this, "height", amountH)
                     resources.saveToSharedPreferences(this, "weight", amountW)
                     resources.saveToSharedPreferences(this, "goal", goal.selectedItem.toString())
