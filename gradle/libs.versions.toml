@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.0"
+agp = "8.7.2"
 appcompatVersion = "1.3.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -11,6 +11,7 @@ material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
 playServicesFitness = "21.2.0"
+firebaseAuthCommon = "9.8.0"
 
 [libraries]
 androidx-appcompat-v130 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
@@ -23,6 +24,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 play-services-fitness = { group = "com.google.android.gms", name = "play-services-fitness", version.ref = "playServicesFitness" }
+firebase-auth-common = { group = "com.google.firebase", name = "firebase-auth-common", version.ref = "firebaseAuthCommon" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

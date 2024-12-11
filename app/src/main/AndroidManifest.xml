@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
 
     <application
         android:allowBackup="true"
@@ -14,15 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NutriVida"
         tools:targetApi="31">
-
-        <receiver android:name=".AlarmReceiver"/>
-        <receiver android:name=".NotificationActionReceiver"/>
-        <service android:name=".AlarmService" android:exported="false"/>
-
         <activity
-            android:name=".Alarma"
-            android:theme="@style/CustomActionBarTheme"
-            android:exported="true" />
+            android:name=".ThirdForm"
+            android:exported="false" />
         <activity
             android:name=".Video"
             android:exported="false" />
@@ -33,7 +29,7 @@
             android:name=".SecondForm"
             android:exported="false" />
         <activity
-            android:name=".SingIn"
+            android:name=".SignIn"
             android:exported="false" />
         <activity
             android:name=".Login"
