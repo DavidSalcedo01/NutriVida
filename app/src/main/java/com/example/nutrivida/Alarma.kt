@@ -1,9 +1,11 @@
 package com.example.nutrivida
 
+import android.Manifest
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -11,6 +13,8 @@ import android.widget.RadioGroup
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import java.util.Calendar
 
 class Alarma : AppCompatActivity() {
@@ -27,6 +31,11 @@ class Alarma : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarma)
+
+        // Solicitar permisos de audio
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), 1)
+        }
 
         spinnerHour = findViewById(R.id.spinnerHour)
         spinnerMinute = findViewById(R.id.spinnerMinute)
@@ -92,7 +101,11 @@ class Alarma : AppCompatActivity() {
             set(Calendar.AM_PM, if (amPm == "AM") Calendar.AM else Calendar.PM)
         }
 
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+        } else {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+        }
 
         Toast.makeText(this, "Alarma establecida para las $hour:$minute $amPm con una duración de $duration minutos y repeticiones cada $repit minutos", Toast.LENGTH_LONG).show()
     }

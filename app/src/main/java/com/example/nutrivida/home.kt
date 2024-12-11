@@ -1,24 +1,30 @@
 package com.example.nutrivida
 
+import android.Manifest
 import android.app.Dialog
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
+import android.content.pm.PackageManager
 import android.content.SharedPreferences
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 
@@ -30,8 +36,22 @@ class home : Fragment() {
 
     private lateinit var sensorManager: SensorManager
     private var stepSensor: Sensor? = null
-    private var totalSteps = 0f
-    private var previousTotalSteps = 0f
+    private var totalSteps = 0
+
+    companion object {
+        private const val PERMISSION_REQUEST_ACTIVITY_RECOGNITION = 1
+        private const val ARG_PARAM1 = "param1"
+        private const val ARG_PARAM2 = "param2"
+
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            home().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,16 +79,17 @@ class home : Fragment() {
 
         val nombre: TextView = view.findViewById(R.id.text_UserName)
         val pasos: TextView = view.findViewById(R.id.text_pasos)
+        val txtPasos: TextView = view.findViewById(R.id.txtPasos)
 
         nombre.text = "Hola, $username"
 
-        sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
-
-        if (stepSensor != null) {
-            sensorManager.registerListener(stepListener, stepSensor, SensorManager.SENSOR_DELAY_UI)
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACTIVITY_RECOGNITION)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(),
+                arrayOf(Manifest.permission.ACTIVITY_RECOGNITION),
+                PERMISSION_REQUEST_ACTIVITY_RECOGNITION)
         } else {
-            Toast.makeText(context, "Sensor de pasos no disponible", Toast.LENGTH_SHORT).show()
+            setupStepSensor()
         }
 
         addRegis.setOnClickListener {
@@ -112,7 +133,72 @@ class home : Fragment() {
             updatePrincipalProgress(progressBarP, progressBarA, progressBarS, progressBarC, progressBarV, progreso)
         })
 
+        createNotificationChannel()
+
         return view
+    }
+
+    private fun setupStepSensor() {
+        sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
+
+        if (stepSensor != null) {
+            sensorManager.registerListener(stepListener, stepSensor, SensorManager.SENSOR_DELAY_UI)
+            Toast.makeText(context, "Sensor de pasos: ${stepSensor?.name}", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "Sensor de pasos no disponible", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<out String>, grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == PERMISSION_REQUEST_ACTIVITY_RECOGNITION) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                setupStepSensor()
+            } else {
+                Toast.makeText(context, "Permission denied to access activity recognition", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun createNotificationChannel() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            val name = "StepGoalChannel"
+            val descriptionText = "Channel for step goal notifications"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("stepGoalChannel", name, importance).apply {
+                description = descriptionText
+            }
+            val notificationManager: NotificationManager =
+                requireActivity().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    private fun sendStepGoalNotification() {
+        val builder = NotificationCompat.Builder(requireContext(), "stepGoalChannel")
+            .setSmallIcon(R.drawable.runnin)
+            .setContentTitle("¡Felicidades!")
+            .setContentText("Has alcanzado tu objetivo de 8000 pasos diarios.")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        with(NotificationManagerCompat.from(requireContext())) {
+            notify(1, builder.build())
+        }
+    }
+
+    private fun updateStepCount(currentSteps: Int) {
+        val txtPasos: TextView = view?.findViewById(R.id.txtPasos) ?: return
+        val progressBarPasos: ProgressBar = view?.findViewById(R.id.progressBar_pasos) ?: return
+
+        txtPasos.text = currentSteps.toString()
+        progressBarPasos.progress = (currentSteps * 100 / 20)
+
+        if (currentSteps == 20) {
+            sendStepGoalNotification()
+        }
     }
 
     private fun updatePrincipalProgress(
@@ -128,52 +214,18 @@ class home : Fragment() {
         progreso.text = totalProgress.toString()
     }
 
-    companion object {
-        private const val ARG_PARAM1 = "param1"
-        private const val ARG_PARAM2 = "param2"
-
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            home().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-
     private val stepListener = object : SensorEventListener {
         override fun onSensorChanged(event: SensorEvent?) {
             if (event != null) {
-                totalSteps = event.values[0]
-                val currentSteps = totalSteps - previousTotalSteps
-                updateStepCount(currentSteps.toInt())
+                if (event.sensor.type == Sensor.TYPE_STEP_COUNTER) {
+                    totalSteps++
+                    if(totalSteps <= 20) {
+                        updateStepCount(totalSteps)
+                    }
+                }
             }
         }
 
         override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
-    }
-
-    private fun updateStepCount(currentSteps: Int) {
-        val pasos: TextView = view?.findViewById(R.id.text_pasos) ?: return
-        val progressBarPasos: ProgressBar = view?.findViewById(R.id.progressBar_pasos) ?: return
-
-        pasos.text = "Pasos: $currentSteps"
-        progressBarPasos.progress = (currentSteps * 100 / 8000)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        val sharedPref = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
-        with(sharedPref.edit()) {
-            putFloat("previousTotalSteps", previousTotalSteps)
-            apply()
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        val sharedPref = requireActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE)
-        previousTotalSteps = sharedPref.getFloat("previousTotalSteps", 0f)
     }
 }
